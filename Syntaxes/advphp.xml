@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="advphp">
+    <meta>
+        <name>advanced PHP</name>
+        <type>markup</type>
+        <preferred-file-extension>php</preferred-file-extension>
+        <parent>html</parent>
+    </meta>
+
+    <detectors>
+        <extension priority="1.0">php</extension>
+    </detectors>
+
+    <indentation>
+        <increase>
+            <expression>&lt;(?!(?i:\!DOCTYPE|area|base|basefront|br|col|embed|frame|hr|img|input|keygen|link|meta|object|param|source)|[^&gt;]*/&gt;)([A-Za-z0-9]+)(?=\s|&gt;)[^&gt;]*&gt;(?!.*&lt;/\1&gt;)</expression>
+        </increase>
+        <decrease>
+            <expression>[\s]*&lt;/([A-Za-z0-9]+)(?=\s|&gt;)[^&gt;]*&gt;</expression>
+        </decrease>
+    </indentation>
+
+    <comments>
+        <multiline>
+            <starts-with>
+                <expression>&lt;!--</expression>
+            </starts-with>
+            <ends-with>
+                <expression>--&gt;</expression>
+            </ends-with>
+        </multiline>
+    </comments>
+
+    <brackets>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+    </brackets>
+
+    <surrounding-pairs>
+        <pair open="&apos;" close="&apos;" />
+        <pair open="&quot;" close="&quot;" />
+    </surrounding-pairs>
+
+    <scopes lookup="dictionary">
+        <include syntax="html" />
+    </scopes>
+
+    <template-scopes>
+        <scope name="advphp.tag.framework">
+            <starts-with>
+                <expression>\&lt;\?php\b</expression>
+                <capture number="0" name="advphp.bracket" />
+            </starts-with>
+            <ends-with>
+                <expression>\?\&gt;</expression>
+                <capture number="0" name="advphp.bracket" />
+            </ends-with>
+            <subscopes>
+                <include syntax="advphp-base" />
+            </subscopes>
+        </scope>
+    </template-scopes>
+
+</syntax>

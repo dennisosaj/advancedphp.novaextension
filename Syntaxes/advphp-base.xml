@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="advphp-base" subsyntax="true">
+    <meta>
+        <name>advanced PHP (Base)</name>
+        <type>markup</type>
+    </meta>
+    
+    <indentation>
+        <increase>
+            <expression>(\:[^}\"']*$)|(\{[^}\"']*$)|(\[[^\]\"']*$)|(\([^)\"']*$)</expression>
+        </increase>
+        <decrease>
+            <expression>^\s*(\s*/\*.*\*/\s*)*[\}\]\)\\]</expression>
+        </decrease>
+    </indentation>
+    
+    <comments>
+        <single>
+            <expression>\/\/</expression>
+        </single>
+        <multiline>
+            <starts-with>
+                <expression>\/\*</expression>
+            </starts-with>
+            <ends-with>
+                <expression>\*\/</expression>
+            </ends-with>
+        </multiline>
+    </comments>
+    
+    <brackets>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+    </brackets>
+    
+    <surrounding-pairs>
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&apos;" close="&apos;" />
+        <pair open="&quot;" close="&quot;" />
+        <pair open="`" close="`" />
+    </surrounding-pairs>
+    
+    <symbols redefinition="within-construct">
+        <local scope="within-construct" />
+        <documentation mode="before" match-multiple="comment" />
+        <documentation mode="after" match-multiple="comment" />
+    </symbols>
+           
+    <scopes>
+        <include syntax="self" collection="comments" />
+        <include syntax="self" collection="statics" />
+        <include syntax="self" collection="definitions" />
+        <include syntax="self" collection="values" />
+        <include syntax="self" collection="identifiers" />
+        <include syntax="self" collection="syntax" />    
+    </scopes>
+    
+    <collections>
+        
+        <!--
+             ██████╗ ██████╗ ███╗   ███╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+            ██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+            ██║     ██║   ██║██╔████╔██║██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+            ██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+            ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+             ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+        -->
+        <!-- Comments -->
+        <collection name="comments">
+            <scope name="advphp-base.comment.single">
+                <expression>(\/\/)(.*)$</expression>
+                <capture number="1" name="advphp-base.comment.content" />
+                <capture number="2" name="advphp-base.comment.content" />
+            </scope>
+
+            <scope name="advphp-base.comment.multi">
+               <starts-with>
+                    <expression>\/\*</expression>
+                    <capture number="0" name="advphp-base.comment.content" />
+                </starts-with>
+                <ends-with>
+                    <expression>\*\/</expression>
+                    <capture number="0" name="advphp-base.comment.content" />
+                </ends-with>
+            </scope>
+        </collection>
+        
+        <!--
+            ███████╗████████╗ █████╗ ████████╗██╗ ██████╗███████╗
+            ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██║██╔════╝██╔════╝
+            ███████╗   ██║   ███████║   ██║   ██║██║     ███████╗
+            ╚════██║   ██║   ██╔══██║   ██║   ██║██║     ╚════██║
+            ███████║   ██║   ██║  ██║   ██║   ██║╚██████╗███████║
+            ╚══════╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝╚══════╝
+        -->
+        <!-- Statics -->
+        <collection name="statics">
+            <scope name="advphp-base.static.condition">
+                <strings>
+                    <!-- reserved conditions -->
+                    <string>if</string>
+                    <string>endif</string>
+                    <string>elseif</string>
+                    <string>else</string>
+                    <string>for</string>
+                    <string>endfor</string>
+                    <string>foreach</string>
+                    <string>endforeach</string>
+                    <string>try</string>
+                    <string>catch</string>
+                    <string>case</string>
+                    <string>switch</string>
+                    <string>break</string>
+                    <string>default</string>
+                    <string>endswitch</string>
+                    <string>do</string>
+                    <string>while</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.static.processor">
+                <strings>
+                    <!-- reserved processors -->
+                    <string>echo</string>
+                    <string>return</string>
+                    <string>clone</string>
+                    <string>yield</string>
+                    <string>yield from</string>
+                    <string>print</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.static.declaration">
+                <strings>
+                    <!-- reserved declarations -->
+                    <string>new</string>
+                    <string>public</string>
+                    <string>private</string>
+                    <string>protected</string>
+                    <string>class</string>
+                    <string>extends</string>
+                    <string>object</string>
+                    <string>array</string>
+                    <string>float</string>
+                    <string>int</string>
+                    <string>string</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.static.import">
+                <strings>
+                    <!-- reserved imports -->
+                    <string>include</string>
+                    <string>include_once</string>
+                    <string>require</string>
+                    <string>require_once</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.static.constant">
+                <strings>
+                    <!-- reserved variables -->
+                    <string>__DIR__</string>
+                    <string>__METHOD__</string>
+                    <string>__FILE__</string>
+                    <string>__LINE__</string>
+                    <string>__FUNCTION__</string>
+                    <string>__CLASS__</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.static.wordOperator">
+                <strings>
+                    <!-- reserved word operators -->
+                    <string>AND</string>
+                    <string>OR</string>
+                    <string>XOR</string>
+                    <string>AS</string>
+                    <string>and</string>
+                    <string>or</string>
+                    <string>xor</string>
+                    <string>as</string>
+                </strings>
+            </scope>
+        </collection>
+
+        <!--
+            ██████╗ ███████╗███████╗██╗███╗   ██╗██╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
+            ██╔══██╗██╔════╝██╔════╝██║████╗  ██║██║╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+            ██║  ██║█████╗  █████╗  ██║██╔██╗ ██║██║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
+            ██║  ██║██╔══╝  ██╔══╝  ██║██║╚██╗██║██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
+            ██████╔╝███████╗██║     ██║██║ ╚████║██║   ██║   ██║╚██████╔╝██║ ╚████║███████║
+            ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+         -->
+        <!-- Definitions -->
+        <collection name="definitions">
+            <scope name="advphp-base.definition.functionDeclaration">
+                <starts-with>
+                    <expression>(function)\s+([a-zA-Z0-9_]*)(\()</expression>
+                    <capture number="1" name="advphp-base.identifier.function.keyword" />
+                    <capture number="2" name="advphp-base.identifier.function.name" />
+                    <capture number="3" name="advphp-base.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <scope name="advphp-base.separator">
+                        <expression>,</expression>
+                        <capture number="0" name="advphp-base.delimiter" />
+                    </scope>
+                    <scope name="advphp-base.parameters">
+                        <expression>(\$)((\bthis\b)|([A-Za-z0-9_]*))</expression>
+                        <capture number="1" name="advphp-base.identifier.parameter.prefix" />
+                        <capture number="3" name="advphp-base.identifier.parameter.this" />
+                        <capture number="4" name="advphp-base.identifier.parameter.name" />
+                    </scope>
+                    <include syntax="self" collection="syntax" />  
+                    <include syntax="self" collection="values" />  
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <!--
+            ██╗   ██╗ █████╗ ██╗     ██╗   ██╗███████╗███████╗
+            ██║   ██║██╔══██╗██║     ██║   ██║██╔════╝██╔════╝
+            ██║   ██║███████║██║     ██║   ██║█████╗  ███████╗
+            ╚██╗ ██╔╝██╔══██║██║     ██║   ██║██╔══╝  ╚════██║
+             ╚████╔╝ ██║  ██║███████╗╚██████╔╝███████╗███████║
+              ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝╚══════╝
+        -->
+        <!-- Values -->
+        <collection name="values">
+            <include syntax="self" collection="strings" />
+            <scope name="advphp-base.value.null">
+                <strings>
+                    <string>null</string>
+                    <string>NULL</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.value.boolean">
+                <strings>
+                    <string>true</string>
+                    <string>false</string>
+                    <string>TRUE</string>
+                    <string>FALSE</string>
+                </strings>
+            </scope>
+            <scope name="advphp-base.value.number.bin">
+                <expression>\b0b[0-1]+\b</expression>
+            </scope>
+            <scope name="advphp-base.value.number.hex">
+                <expression>\b0x[a-fA-F0-9]+\b</expression>
+            </scope>
+            <scope name="advphp-base.value.number.oct">
+                <expression>\b0o[0-7]+\b</expression>
+            </scope>
+            <scope name="advphp-base.value.number">
+                <expression>\b\-?(?:\d+(?:\.\d)?|(?:\.\d+))\b</expression>
+            </scope>
+            
+            <scope name="advphp-base.value.list">
+                <symbol type="expression">
+                    <context behavior="subtree" />
+                </symbol>
+                <starts-with>
+                    <expression>\[</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>\]</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="comments" />
+                    <include syntax="self" collection="values" />
+                    <include syntax="self" collection="identifiers" />
+                    <include syntax="self" collection="syntax" />
+                </subscopes>
+            </scope>
+        </collection>
+
+        <!--
+            ███████╗████████╗██████╗ ██╗███╗   ██╗ ██████╗ ███████╗
+            ██╔════╝╚══██╔══╝██╔══██╗██║████╗  ██║██╔════╝ ██╔════╝
+            ███████╗   ██║   ██████╔╝██║██╔██╗ ██║██║  ███╗███████╗
+            ╚════██║   ██║   ██╔══██╗██║██║╚██╗██║██║   ██║╚════██║
+            ███████║   ██║   ██║  ██║██║██║ ╚████║╚██████╔╝███████║
+            ╚══════╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+        -->
+        <!-- Strings -->
+        <collection name="strings">
+            <scope name="advphp-base.string.doubleQuote">
+                <starts-with>
+                    <expression>"</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <scope name="advphp-base.curlyVarSubstitution">
+                        <starts-with>
+                            <expression>\{\$</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>\}</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="definitions" />
+                            <include syntax="self" collection="values" />
+                            <include syntax="self" collection="identifiers" />
+                            <include syntax="self" collection="syntax" />
+                            <scope name="advphp-base.varSubstitution">
+                                <expression>(\bthis\b)|([A-Za-z0-9_]*)</expression>
+                                <capture number="1" name="advphp-base.identifier.variable.this" />
+                                <capture number="2" name="advphp-base.identifier.variable.name" />
+                            </scope>
+                            <scope name="advphp-base.varSubstitution">
+                                <starts-with>
+                                    <expression>\[</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </starts-with>
+                                <ends-with>
+                                    <expression>\]</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </ends-with>
+                                <subscopes>
+                                    <include syntax="self" collection="definitions" />
+                                    <include syntax="self" collection="values" />
+                                    <include syntax="self" collection="identifiers" />
+                                    <include syntax="self" collection="syntax" />
+                                </subscopes>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                    <scope name="advphp-base.varSubstitution">
+                        <expression>(\$)((\bthis\b)|([A-Za-z0-9_]*))</expression>
+                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
+                        <capture number="3" name="advphp-base.identifier.variable.this" />
+                        <capture number="4" name="advphp-base.identifier.variable.name" />
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="advphp-base.string.singleQuote">
+                <expression>(')(.*?)(')</expression>
+                <capture number="1" name="advphp-base.bracket" />
+                <capture number="2" name="advphp-base.value.string" />
+                <capture number="3" name="advphp-base.bracket" />
+            </scope>
+            <scope name="advphp-base.string.backTic">
+                <expression>(`)(.*?)(`)</expression>
+                <capture number="1" name="advphp-base.bracket" />
+                <capture number="2" name="advphp-base.static.declaration" />
+                <capture number="3" name="advphp-base.bracket" />
+            </scope>
+        </collection>
+       
+        <!--
+            ██╗██████╗ ███████╗███╗   ██╗████████╗██╗███████╗██╗███████╗██████╗ ███████╗
+            ██║██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗██╔════╝
+            ██║██║  ██║█████╗  ██╔██╗ ██║   ██║   ██║█████╗  ██║█████╗  ██████╔╝███████╗
+            ██║██║  ██║██╔══╝  ██║╚██╗██║   ██║   ██║██╔══╝  ██║██╔══╝  ██╔══██╗╚════██║
+            ██║██████╔╝███████╗██║ ╚████║   ██║   ██║██║     ██║███████╗██║  ██║███████║
+            ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝
+        -->
+        <!-- Identifiers -->
+        <collection name="identifiers">
+            <scope name="advphp-base.identifier.variable">
+                <expression>(\$)((\bthis\b)|([A-Za-z0-9_]*))</expression>
+                <capture number="1" name="advphp-base.identifier.variable.prefix" />
+                <capture number="3" name="advphp-base.identifier.variable.this" />
+                <capture number="4" name="advphp-base.identifier.variable.name" />
+            </scope>
+            <scope name="advphp-base.identifier.objectMethod">
+                <expression>(\-\>)([a-zA-Z0-9_]*)(\()</expression>
+                <capture number="1" name="advphp-base.operator" />
+                <capture number="2" name="advphp-base.identifier.function.name" />
+                <capture number="3" name="advphp-base.bracket" />
+            </scope>
+            <scope name="advphp-base.identifier.objectProperty">
+                <expression>(\-\>)([A-Za-z0-9_]*)</expression>
+                <capture number="1" name="advphp-base.operator" />
+                <capture number="2" name="advphp-base.identifier.variable.name" />
+            </scope>
+            <scope name="advphp-base.identifier.function">
+                <expression>([a-zA-Z_{1}][a-zA-Z0-9_]*)(\()</expression>
+                <capture number="1" name="advphp-base.identifier.function.name" />
+                <capture number="2" name="advphp-base.bracket" />
+            </scope>
+            <scope name="advphp-base.identifier.object">
+                <expression>([a-zA-Z_{1}][a-zA-Z0-9_]*)(\:\:)</expression>
+                <capture number="1" name="advphp-base.identifier.object.name" />
+                <capture number="2" name="advphp-base.operator" />
+            </scope>
+        </collection>
+
+        <!--
+            ███████╗██╗   ██╗███╗   ██╗████████╗ █████╗ ██╗  ██╗
+            ██╔════╝╚██╗ ██╔╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗██╔╝
+            ███████╗ ╚████╔╝ ██╔██╗ ██║   ██║   ███████║ ╚███╔╝
+            ╚════██║  ╚██╔╝  ██║╚██╗██║   ██║   ██╔══██║ ██╔██╗
+            ███████║   ██║   ██║ ╚████║   ██║   ██║  ██║██╔╝ ██╗
+            ╚══════╝   ╚═╝   ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+        -->
+        <!-- Syntax -->
+        <collection name="syntax">
+            <scope name="advphp-base.bracket">
+                <expression>[\(\[\{\)\]\}]</expression>
+            </scope>
+            <scope name="advphp-base.operator">
+                <expression>(\+|\-|\*|\/|\%|\*\*|\=|\=\=|\=\=\=|\!\=|\&lt;\&gt;|\!\=\=|\&amp;|\^|\||\&lt;\&lt;|\&gt;\&gt;|\&lt;|\&lt;\=|\&gt;|\&gt;\=|\&lt;\=\&gt;|\+\+|\-\-|\&amp;\&amp;|\|\||\;|\!|\.|\.\=|\?|\:|\?\?)</expression>
+            </scope>
+            <scope name="advphp-base.delimiter">
+                <expression>,</expression>
+            </scope>
+        </collection>
+    </collections>
+</syntax>
+
