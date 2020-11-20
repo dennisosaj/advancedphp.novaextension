@@ -1,4 +1,4 @@
-![advanced PHP Logo]() 
+![advanced PHP Logo](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/thumb.png?raw=true) 
 
 # advanced PHP 🔥
 
@@ -26,15 +26,17 @@ advanced PHP currently supports the following features:
 
 ✅ supports Nova's rainbow brackets option
 
-### advanced PHP
-![advanced PHP]() 
+### advanced PHP:
+![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
 
-### standard PHP-HTML
-![standard PHP-HTML]() 
+### standard PHP-HTML:
+![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
 Same theme in both case. 
 
 ## Theming 🎨
+
+![varia Theme](https://github.com/dennisosaj/variatheme.novaextension/blob/main/Images/thumb.png?raw=true)
 
 (2020-11-20) The syntax works best with [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension). 💯
 
