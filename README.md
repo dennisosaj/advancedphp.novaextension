@@ -26,6 +26,12 @@ advanced PHP currently supports the following features:
 
 ✅ supports Nova's rainbow brackets option
 
+✅ subtree support
+
+✅ function etc. folding
+
+✅ completions and suggestions
+
 ### advanced PHP:
 ![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
 
