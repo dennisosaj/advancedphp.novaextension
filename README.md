@@ -6,9 +6,9 @@ advanced PHP provides syntax highlighting for special PHP writing. It is also fu
 
 ## Why, though? 🤔
 
-Nova is a pretty editor with rich features, but it seems in lacking for language supports. Because I'm a long time Sublime Text 3 user I wanted to get some fresh air and started looking into Nova. Unfortunately all my projects looked horrible with the standard PHP-HTML syntax, so I started building this Extension. 
+Nova is a pretty editor with rich features, but it seems in lacking for language support. Because I'm a long time Sublime Text 3 user I wanted to get some fresh air and started looking into Nova. Unfortunately all my projects looked horrible with the standard PHP-HTML syntax, so I started building this extension. 
 
-Nova is still fresh and can't compete in terms of extensions with other editors which are one the market for years now. But this for sure will change.
+Nova is still fresh and can't compete in terms of extensions with other editors which are on the market for years now. But this for sure will change.
 
 ## Language Support 🧩
 
@@ -32,7 +32,7 @@ advanced PHP currently supports the following features:
 ### standard PHP-HTML:
 ![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
-Same theme in both case. 
+Same theme in both cases. 
 
 ## Theming 🎨
 

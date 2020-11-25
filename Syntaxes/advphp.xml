@@ -35,30 +35,35 @@
         <pair open="{" close="}" />
         <pair open="[" close="]" />
         <pair open="(" close=")" />
-    </brackets>
-
-    <surrounding-pairs>
-        <pair open="&apos;" close="&apos;" />
-        <pair open="&quot;" close="&quot;" />
-    </surrounding-pairs>
-
-    <scopes lookup="dictionary">
+    </brackets>  
+    
+    <scopes spell-check="true" lookup="dictionary">
+        <scope name="advphp.comment.shebang" spell-check="false" lookup="documentation">
+            <expression>\A\#!(.*)$</expression>
+            <capture number="1" name="advphp.comment.shebang.content" />
+        </scope>
+        
         <include syntax="html" />
     </scopes>
-
+    
     <template-scopes>
-        <scope name="advphp.tag.framework">
+        <scope name="advphp.tag.framework" spell-check="false" lookup="index">
+            <symbol type="tag-framework">
+                <context behavior="subtree" group-by-name="true" />
+            </symbol>
             <starts-with>
-                <expression>\&lt;\?php\b</expression>
+                <expression>&lt;\?(?:(?:php|PHP)\b|=)?</expression>
                 <capture number="0" name="advphp.bracket" />
             </starts-with>
             <ends-with>
-                <expression>\?\&gt;</expression>
+                <expression>\?&gt;</expression>
                 <capture number="0" name="advphp.bracket" />
             </ends-with>
-            <subscopes>
-                <include syntax="advphp-base" />
-            </subscopes>
+            <subsyntax name="advphp-base" noncontiguous="true" export-symbols="true">
+                <cut-off>
+                    <expression>(?=\?&gt;)</expression>
+                </cut-off>
+            </subsyntax>
         </scope>
     </template-scopes>
 
