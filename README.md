@@ -20,6 +20,8 @@ advanced PHP currently supports the following features:
 
 ✅ variable substitution with curly brackets
 
+✅ SQL recognition within strings
+
 ✅ separation between function parameters, arguments, variables and this
 
 ✅ separation between different elements like declarations, methods, variable prefixes etc.
@@ -35,10 +37,12 @@ advanced PHP currently supports the following features:
 ### advanced PHP:
 ![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
 
+With [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension). 
+
 ### standard PHP-HTML:
 ![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
-Same theme in both cases. 
+With standard "Palette" theme.
 
 ## Theming 🎨
 
@@ -68,6 +72,13 @@ advphp-base.static.constant {
 }
 advphp-base.static.wordOperator {
     /* AND, OR, XOR, ... */
+}
+```
+
+### SQL Keywords
+```
+advphp-base.sql.keywords {
+    /* SELECT, FROM, WHERE, ... */
 }
 ```
 
@@ -105,7 +116,7 @@ advphp-base.identifier.function.keyword {
 advphp-base.identifier.function.name {
     /* my_function() */
 }
-advphp-base.parameters {
+advphp-base.identifier.parameter.prefix {
     /* my_function($parameter) {} */
 }
 advphp-base.identifier.parameter.name {
@@ -124,8 +135,13 @@ advphp-base.identifier.object.name {
 ```
 advphp-base.string,
 advphp-base.value.string,
-advphp-base.string.doubleQuote {
-    /* "string" */
+advphp-base.string.doubleQuote,
+advphp-base.string.singleQuote, {
+    /* "string", 'string' */
+}
+
+advphp-base.string.backTic {
+    /* `string` */
 }
 ```
 

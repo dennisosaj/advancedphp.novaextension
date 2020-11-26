@@ -1,3 +1,9 @@
+## Version 1.1.0
+
+### New Features:
+
+- SQL recognition within strings
+
 ## Version 1.0.1
 
 - README changes

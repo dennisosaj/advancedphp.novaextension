@@ -205,7 +205,254 @@
                 </strings>
             </scope>
         </collection>
-
+        
+        <collection name="sqls">
+            <scope name="advphp-base.sql.keywords">
+                <!-- reserved SQL keywords -->
+                <strings case-insensitive="false">
+                    <string>ABSOLUTE</string>
+                    <string>ACTION</string>
+                    <string>ADA</string>
+                    <string>ADD</string>
+                    <string>ALL</string>
+                    <string>ALLOCATE</string>
+                    <string>ALTER</string>
+                    <string>AND</string>
+                    <string>ANY</string>
+                    <string>ARE</string>
+                    <string>AS</string>
+                    <string>ASC</string>
+                    <string>ASSERTION</string>
+                    <string>AT</string>
+                    <string>AUTHORIZATION</string>
+                    <string>AVG</string>
+                    <string>BEGIN</string>
+                    <string>BETWEEN</string>
+                    <string>BIT</string>
+                    <string>BIT_LENGTH</string>
+                    <string>BOTH</string>
+                    <string>BTREE</string>
+                    <string>BY</string>
+                    <string>CASCADE</string>
+                    <string>CASCADED</string>
+                    <string>CASE</string>
+                    <string>CAST</string>
+                    <string>CATALOG</string>
+                    <string>CHAR</string>
+                    <string>CHARACTER</string>
+                    <string>CHARACTER_LENGTH</string>
+                    <string>CHAR_LENGTH</string>
+                    <string>CHARSET</string>
+                    <string>CHECK</string>
+                    <string>CLOSE</string>
+                    <string>COALESCE</string>
+                    <string>COLLATE</string>
+                    <string>COLLATION</string>
+                    <string>COLUMN</string>
+                    <string>COMMIT</string>
+                    <string>CONNECT</string>
+                    <string>CONNECTION</string>
+                    <string>CONSTRAINT</string>
+                    <string>CONSTRAINTS</string>
+                    <string>CONTINUE</string>
+                    <string>CONVERT</string>
+                    <string>CORRESPONDING</string>
+                    <string>COUNT</string>
+                    <string>CREATE</string>
+                    <string>CROSS</string>
+                    <string>CURRENT</string>
+                    <string>CURRENT_DATE</string>
+                    <string>CURRENT_TIME</string>
+                    <string>CURRENT_TIMESTAMP</string>
+                    <string>CURRENT_USER</string>
+                    <string>CURSOR</string>
+                    <string>DATE</string>
+                    <string>DAY</string>
+                    <string>DEALLOCATE</string>
+                    <string>DEC</string>
+                    <string>DECIMAL</string>
+                    <string>DECLARE</string>
+                    <string>DEFAULT</string>
+                    <string>DEFERRABLE</string>
+                    <string>DEFERRED</string>
+                    <string>DELETE</string>
+                    <string>DESC</string>
+                    <string>DESCRIBE</string>
+                    <string>DESCRIPTOR</string>
+                    <string>DIAGNOSTICS</string>
+                    <string>DISCONNECT</string>
+                    <string>DISTINCT</string>
+                    <string>DOMAIN</string>
+                    <string>DOUBLE</string>
+                    <string>DROP</string>
+                    <string>ELSE</string>
+                    <string>END</string>
+                    <string>END-EXEC</string>
+                    <string>ENGINE</string>
+                    <string>ESCAPE</string>
+                    <string>EXCEPT</string>
+                    <string>EXCEPTION</string>
+                    <string>EXEC</string>
+                    <string>EXECUTE</string>
+                    <string>EXISTS</string>
+                    <string>EXTERNAL</string>
+                    <string>EXTRACT</string>
+                    <string>FETCH</string>
+                    <string>FIRST</string>
+                    <string>FLOAT</string>
+                    <string>FOR</string>
+                    <string>FOREIGN</string>
+                    <string>FORTRAN</string>
+                    <string>FOUND</string>
+                    <string>FROM</string>
+                    <string>FULL</string>
+                    <string>GET</string>
+                    <string>GLOBAL</string>
+                    <string>GO</string>
+                    <string>GOTO</string>
+                    <string>GRANT</string>
+                    <string>GROUP</string>
+                    <string>HAVING</string>
+                    <string>HOUR</string>
+                    <string>IDENTITY</string>
+                    <string>IF</string>
+                    <string>IMMEDIATE</string>
+                    <string>IN</string>
+                    <string>INCLUDE</string>
+                    <string>INDEX</string>
+                    <string>INDICATOR</string>
+                    <string>INITIALLY</string>
+                    <string>INNER</string>
+                    <string>INPUT</string>
+                    <string>INSENSITIVE</string>
+                    <string>INSERT</string>
+                    <string>INT</string>
+                    <string>INTEGER</string>
+                    <string>INTERSECT</string>
+                    <string>INTERVAL</string>
+                    <string>INTO</string>
+                    <string>IS</string>
+                    <string>ISOLATION</string>
+                    <string>JOIN</string>
+                    <string>KEY</string>
+                    <string>LANGUAGE</string>
+                    <string>LAST</string>
+                    <string>LEADING</string>
+                    <string>LEFT</string>
+                    <string>LEVEL</string>
+                    <string>LIKE</string>
+                    <string>LOCAL</string>
+                    <string>LOCK</string>
+                    <string>LOWER</string>
+                    <string>MATCH</string>
+                    <string>MAX</string>
+                    <string>MIN</string>
+                    <string>MINUTE</string>
+                    <string>MODULE</string>
+                    <string>MONTH</string>
+                    <string>NAMES</string>
+                    <string>NATIONAL</string>
+                    <string>NATURAL</string>
+                    <string>NCHAR</string>
+                    <string>NEXT</string>
+                    <string>NO</string>
+                    <string>NONE</string>
+                    <string>NOT</string>
+                    <string>NULLIF</string>
+                    <string>NUMERIC</string>
+                    <string>OCTET_LENGTH</string>
+                    <string>OF</string>
+                    <string>ON</string>
+                    <string>ONLY</string>
+                    <string>OPEN</string>
+                    <string>OPTION</string>
+                    <string>OR</string>
+                    <string>ORDER</string>
+                    <string>OUTER</string>
+                    <string>OUTPUT</string>
+                    <string>OVERLAPS</string>
+                    <string>PAD</string>
+                    <string>PARTIAL</string>
+                    <string>PASCAL</string>
+                    <string>POSITION</string>
+                    <string>PRECISION</string>
+                    <string>PREPARE</string>
+                    <string>PRESERVE</string>
+                    <string>PRIMARY</string>
+                    <string>PRIOR</string>
+                    <string>PRIVILEGES</string>
+                    <string>PROCEDURE</string>
+                    <string>PUBLIC</string>
+                    <string>READ</string>
+                    <string>REAL</string>
+                    <string>REFERENCES</string>
+                    <string>RELATIVE</string>
+                    <string>RESTRICT</string>
+                    <string>REVOKE</string>
+                    <string>RIGHT</string>
+                    <string>ROLLBACK</string>
+                    <string>ROWS</string>
+                    <string>SCHEMA</string>
+                    <string>SCROLL</string>
+                    <string>SECOND</string>
+                    <string>SECTION</string>
+                    <string>SELECT</string>
+                    <string>SESSION</string>
+                    <string>SESSION_USER</string>
+                    <string>SET</string>
+                    <string>SIZE</string>
+                    <string>SMALLINT</string>
+                    <string>SOME</string>
+                    <string>SPACE</string>
+                    <string>SQL</string>
+                    <string>SQLCA</string>
+                    <string>SQLCODE</string>
+                    <string>SQLERROR</string>
+                    <string>SQLSTATE</string>
+                    <string>SQLWARNING</string>
+                    <string>SUBSTRING</string>
+                    <string>SUM</string>
+                    <string>SYSTEM_USER</string>
+                    <string>TABLE</string>
+                    <string>TABLES</string>
+                    <string>TEMPORARY</string>
+                    <string>THEN</string>
+                    <string>TIME</string>
+                    <string>TIMESTAMP</string>
+                    <string>TIMEZONE_HOUR</string>
+                    <string>TIMEZONE_MINUTE</string>
+                    <string>TO</string>
+                    <string>TRAILING</string>
+                    <string>TRANSACTION</string>
+                    <string>TRANSLATE</string>
+                    <string>TRANSLATION</string>
+                    <string>TRIM</string>
+                    <string>UNION</string>
+                    <string>UNIQUE</string>
+                    <string>UNKNOWN</string>
+                    <string>UNLOCK</string>
+                    <string>UPDATE</string>
+                    <string>UPPER</string>
+                    <string>USAGE</string>
+                    <string>USER</string>
+                    <string>USING</string>
+                    <string>VALUE</string>
+                    <string>VALUES</string>
+                    <string>VARCHAR</string>
+                    <string>VARYING</string>
+                    <string>VIEW</string>
+                    <string>WHEN</string>
+                    <string>WHENEVER</string>
+                    <string>WHERE</string>
+                    <string>WITH</string>
+                    <string>WORK</string>
+                    <string>WRITE</string>
+                    <string>YEAR</string>
+                    <string>ZONE</string>
+                </strings>
+            </scope>
+        </collection>
+        
         <!--
             ██████╗ ███████╗███████╗██╗███╗   ██╗██╗████████╗██╗ ██████╗ ███╗   ██╗███████╗
             ██╔══██╗██╔════╝██╔════╝██║████╗  ██║██║╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
@@ -458,6 +705,69 @@
         -->
         <!-- Strings -->
         <collection name="strings">
+            <scope name="advphp-base.string.doubleQuote.sql">
+                <starts-with>
+                    <expression>(")(ABSOLUTE\b|ACTION\b|ADA\b|ADD\b|ALL\b|ALLOCATE\b|ALTER\b|AND\b|ANY\b|ARE\b|AS\b|ASC\b|ASSERTION\b|AT\b|AUTHORIZATION\b|AVG\b|BEGIN\b|BETWEEN\b|BIT\b|BIT_LENGTH\b|BOTH\b|BTREE\b|BY\b|CASCADE\b|CASCADED\b|CASE\b|CAST\b|CATALOG\b|CHAR\b|CHARACTER\b|CHARACTER_LENGTH\b|CHAR_LENGTH\b|CHARSET\b|CHECK\b|CLOSE\b|COALESCE\b|COLLATE\b|COLLATION\b|COLUMN\b|COMMIT\b|CONNECT\b|CONNECTION\b|CONSTRAINT\b|CONSTRAINTS\b|CONTINUE\b|CONVERT\b|CORRESPONDING\b|COUNT\b|CREATE\b|CROSS\b|CURRENT\b|CURRENT_DATE\b|CURRENT_TIME\b|CURRENT_TIMESTAMP\b|CURRENT_USER\b|CURSOR\b|DATE\b|DAY\b|DEALLOCATE\b|DEC\b|DECIMAL\b|DECLARE\b|DEFAULT\b|DEFERRABLE\b|DEFERRED\b|DELETE\b|DESC\b|DESCRIBE\b|DESCRIPTOR\b|DIAGNOSTICS\b|DISCONNECT\b|DISTINCT\b|DOMAIN\b|DOUBLE\b|DROP\b|ELSE\b|END\b|END\b|ENGINE\b|ESCAPE\b|EXCEPT\b|EXCEPTION\b|EXEC\b|EXECUTE\b|EXISTS\b|EXTERNAL\b|EXTRACT\b|FETCH\b|FIRST\b|FLOAT\b|FOR\b|FOREIGN\b|FORTRAN\b|FOUND\b|FROM\b|FULL\b|GET\b|GLOBAL\b|GO\b|GOTO\b|GRANT\b|GROUP\b|HAVING\b|HOUR\b|IDENTITY\b|IF\b|IMMEDIATE\b|IN\b|INCLUDE\b|INDEX\b|INDICATOR\b|INITIALLY\b|INNER\b|INPUT\b|INSENSITIVE\b|INSERT\b|INT\b|INTEGER\b|INTERSECT\b|INTERVAL\b|INTO\b|IS\b|ISOLATION\b|JOIN\b|KEY\b|LANGUAGE\b|LAST\b|LEADING\b|LEFT\b|LEVEL\b|LIKE\b|LOCAL\b|LOCK\b|LOWER\b|MATCH\b|MAX\b|MIN\b|MINUTE\b|MODULE\b|MONTH\b|NAMES\b|NATIONAL\b|NATURAL\b|NCHAR\b|NEXT\b|NO\b|NONE\b|NOT\b|NULLIF\b|NUMERIC\b|OCTET_LENGTH\b|OF\b|ON\b|ONLY\b|OPEN\b|OPTION\b|OR\b|ORDER\b|OUTER\b|OUTPUT\b|OVERLAPS\b|PAD\b|PARTIAL\b|PASCAL\b|POSITION\b|PRECISION\b|PREPARE\b|PRESERVE\b|PRIMARY\b|PRIOR\b|PRIVILEGES\b|PROCEDURE\b|PUBLIC\b|READ\b|REAL\b|REFERENCES\b|RELATIVE\b|RESTRICT\b|REVOKE\b|RIGHT\b|ROLLBACK\b|ROWS\b|SCHEMA\b|SCROLL\b|SECOND\b|SECTION\b|SELECT\b|SESSION\b|SESSION_USER\b|SET\b|SIZE\b|SMALLINT\b|SOME\b|SPACE\b|SQL\b|SQLCA\b|SQLCODE\b|SQLERROR\b|SQLSTATE\b|SQLWARNING\b|SUBSTRING\b|SUM\b|SYSTEM_USER\b|TABLE\b|TABLES\b|TEMPORARY\b|THEN\b|TIME\b|TIMESTAMP\b|TIMEZONE_HOUR\b|TIMEZONE_MINUTE\b|TO\b|TRAILING\b|TRANSACTION\b|TRANSLATE\b|TRANSLATION\b|TRIM\b|UNION\b|UNIQUE\b|UNKNOWN\b|UNLOCK\b|UPDATE\b|UPPER\b|USAGE\b|USER\b|USING\b|VALUE\b|VALUES\b|VARCHAR\b|VARYING\b|VIEW\b|WHEN\b|WHENEVER\b|WHERE\b|WITH\b|WORK\b|WRITE\b|YEAR\b|ZONE\b)</expression>
+                    <capture number="1" name="advphp-base.bracket" />
+                    <capture number="2" name="advphp-base.sql.keywords" />
+                </starts-with>
+                <ends-with>
+                    <expression>"</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="sqls" />
+                    <include syntax="self" collection="strings" />
+                    <include syntax="self" collection="syntax" />
+                    <scope name="advphp-base.string.doubleQuote.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
+                        <capture number="1" name="advphp-base.value.string" />
+                    </scope>
+                    <scope name="advphp-base.curlyVarSubstitution">
+                        <starts-with>
+                            <expression>\{\$</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>\}</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="definitions" />
+                            <include syntax="self" collection="values" />
+                            <include syntax="self" collection="identifiers" />
+                            <include syntax="self" collection="syntax" />
+                            <scope name="advphp-base.varSubstitution">
+                                <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
+                                <capture number="1" name="advphp-base.identifier.variable.this" />
+                                <capture number="2" name="advphp-base.identifier.variable.name" />
+                            </scope>
+                            <scope name="advphp-base.varSubstitution">
+                                <starts-with>
+                                    <expression>\[</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </starts-with>
+                                <ends-with>
+                                    <expression>\]</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </ends-with>
+                                <subscopes>
+                                    <include syntax="self" collection="definitions" />
+                                    <include syntax="self" collection="values" />
+                                    <include syntax="self" collection="identifiers" />
+                                    <include syntax="self" collection="syntax" />
+                                </subscopes>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                    <scope name="advphp-base.varSubstitution">
+                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
+                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
+                        <capture number="3" name="advphp-base.identifier.variable.this" />
+                        <capture number="4" name="advphp-base.identifier.variable.name" />
+                    </scope>
+                </subscopes>
+            </scope>
             <scope name="advphp-base.string.doubleQuote">
                 <starts-with>
                     <expression>"</expression>
@@ -517,17 +827,144 @@
                     </scope>
                 </subscopes>
             </scope>
+            <scope name="advphp-base.string.singleQuote.sql">
+                <starts-with>
+                    <expression>(')(ABSOLUTE\b|ACTION\b|ADA\b|ADD\b|ALL\b|ALLOCATE\b|ALTER\b|AND\b|ANY\b|ARE\b|AS\b|ASC\b|ASSERTION\b|AT\b|AUTHORIZATION\b|AVG\b|BEGIN\b|BETWEEN\b|BIT\b|BIT_LENGTH\b|BOTH\b|BTREE\b|BY\b|CASCADE\b|CASCADED\b|CASE\b|CAST\b|CATALOG\b|CHAR\b|CHARACTER\b|CHARACTER_LENGTH\b|CHAR_LENGTH\b|CHARSET\b|CHECK\b|CLOSE\b|COALESCE\b|COLLATE\b|COLLATION\b|COLUMN\b|COMMIT\b|CONNECT\b|CONNECTION\b|CONSTRAINT\b|CONSTRAINTS\b|CONTINUE\b|CONVERT\b|CORRESPONDING\b|COUNT\b|CREATE\b|CROSS\b|CURRENT\b|CURRENT_DATE\b|CURRENT_TIME\b|CURRENT_TIMESTAMP\b|CURRENT_USER\b|CURSOR\b|DATE\b|DAY\b|DEALLOCATE\b|DEC\b|DECIMAL\b|DECLARE\b|DEFAULT\b|DEFERRABLE\b|DEFERRED\b|DELETE\b|DESC\b|DESCRIBE\b|DESCRIPTOR\b|DIAGNOSTICS\b|DISCONNECT\b|DISTINCT\b|DOMAIN\b|DOUBLE\b|DROP\b|ELSE\b|END\b|END\b|ENGINE\b|ESCAPE\b|EXCEPT\b|EXCEPTION\b|EXEC\b|EXECUTE\b|EXISTS\b|EXTERNAL\b|EXTRACT\b|FETCH\b|FIRST\b|FLOAT\b|FOR\b|FOREIGN\b|FORTRAN\b|FOUND\b|FROM\b|FULL\b|GET\b|GLOBAL\b|GO\b|GOTO\b|GRANT\b|GROUP\b|HAVING\b|HOUR\b|IDENTITY\b|IF\b|IMMEDIATE\b|IN\b|INCLUDE\b|INDEX\b|INDICATOR\b|INITIALLY\b|INNER\b|INPUT\b|INSENSITIVE\b|INSERT\b|INT\b|INTEGER\b|INTERSECT\b|INTERVAL\b|INTO\b|IS\b|ISOLATION\b|JOIN\b|KEY\b|LANGUAGE\b|LAST\b|LEADING\b|LEFT\b|LEVEL\b|LIKE\b|LOCAL\b|LOCK\b|LOWER\b|MATCH\b|MAX\b|MIN\b|MINUTE\b|MODULE\b|MONTH\b|NAMES\b|NATIONAL\b|NATURAL\b|NCHAR\b|NEXT\b|NO\b|NONE\b|NOT\b|NULLIF\b|NUMERIC\b|OCTET_LENGTH\b|OF\b|ON\b|ONLY\b|OPEN\b|OPTION\b|OR\b|ORDER\b|OUTER\b|OUTPUT\b|OVERLAPS\b|PAD\b|PARTIAL\b|PASCAL\b|POSITION\b|PRECISION\b|PREPARE\b|PRESERVE\b|PRIMARY\b|PRIOR\b|PRIVILEGES\b|PROCEDURE\b|PUBLIC\b|READ\b|REAL\b|REFERENCES\b|RELATIVE\b|RESTRICT\b|REVOKE\b|RIGHT\b|ROLLBACK\b|ROWS\b|SCHEMA\b|SCROLL\b|SECOND\b|SECTION\b|SELECT\b|SESSION\b|SESSION_USER\b|SET\b|SIZE\b|SMALLINT\b|SOME\b|SPACE\b|SQL\b|SQLCA\b|SQLCODE\b|SQLERROR\b|SQLSTATE\b|SQLWARNING\b|SUBSTRING\b|SUM\b|SYSTEM_USER\b|TABLE\b|TABLES\b|TEMPORARY\b|THEN\b|TIME\b|TIMESTAMP\b|TIMEZONE_HOUR\b|TIMEZONE_MINUTE\b|TO\b|TRAILING\b|TRANSACTION\b|TRANSLATE\b|TRANSLATION\b|TRIM\b|UNION\b|UNIQUE\b|UNKNOWN\b|UNLOCK\b|UPDATE\b|UPPER\b|USAGE\b|USER\b|USING\b|VALUE\b|VALUES\b|VARCHAR\b|VARYING\b|VIEW\b|WHEN\b|WHENEVER\b|WHERE\b|WITH\b|WORK\b|WRITE\b|YEAR\b|ZONE\b)</expression>
+                    <capture number="1" name="advphp-base.bracket" />
+                    <capture number="2" name="advphp-base.sql.keywords" />
+                </starts-with>
+                <ends-with>
+                    <expression>'</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="sqls" />
+                    <include syntax="self" collection="strings" />
+                    <include syntax="self" collection="syntax" />
+                    <scope name="advphp-base.string.singleQuote.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
+                        <capture number="1" name="advphp-base.value.string" />
+                    </scope>
+                    <scope name="advphp-base.curlyVarSubstitution">
+                        <starts-with>
+                            <expression>\{\$</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>\}</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="definitions" />
+                            <include syntax="self" collection="values" />
+                            <include syntax="self" collection="identifiers" />
+                            <include syntax="self" collection="syntax" />
+                            <scope name="advphp-base.varSubstitution">
+                                <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
+                                <capture number="1" name="advphp-base.identifier.variable.this" />
+                                <capture number="2" name="advphp-base.identifier.variable.name" />
+                            </scope>
+                            <scope name="advphp-base.varSubstitution">
+                                <starts-with>
+                                    <expression>\[</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </starts-with>
+                                <ends-with>
+                                    <expression>\]</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </ends-with>
+                                <subscopes>
+                                    <include syntax="self" collection="definitions" />
+                                    <include syntax="self" collection="values" />
+                                    <include syntax="self" collection="identifiers" />
+                                    <include syntax="self" collection="syntax" />
+                                </subscopes>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                    <scope name="advphp-base.varSubstitution">
+                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
+                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
+                        <capture number="3" name="advphp-base.identifier.variable.this" />
+                        <capture number="4" name="advphp-base.identifier.variable.name" />
+                    </scope>
+                </subscopes>
+            </scope>
             <scope name="advphp-base.string.singleQuote">
-                <expression>(')(.*?)(')</expression>
-                <capture number="1" name="advphp-base.bracket" />
-                <capture number="2" name="advphp-base.value.string" />
-                <capture number="3" name="advphp-base.bracket" />
+                <starts-with>
+                    <expression>'</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>'</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="sqls" />
+                    <scope name="advphp-base.string.singleQuote.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
+                        <capture number="1" name="advphp-base.value.string" />
+                    </scope>
+                </subscopes>
             </scope>
             <scope name="advphp-base.string.backTic">
-                <expression>(`)(.*?)(`)</expression>
-                <capture number="1" name="advphp-base.bracket" />
-                <capture number="2" name="advphp-base.static.declaration" />
-                <capture number="3" name="advphp-base.bracket" />
+                <starts-with>
+                    <expression>`</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>`</expression>
+                    <capture number="0" name="advphp-base.bracket" />
+                </ends-with>
+                <subscopes>
+                    <scope name="advphp-base.string.backTic.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
+                        <capture number="1" name="advphp-base.value.string" />
+                    </scope>
+                    <scope name="advphp-base.curlyVarSubstitution">
+                        <starts-with>
+                            <expression>\{\$</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </starts-with>
+                        <ends-with>
+                            <expression>\}</expression>
+                            <capture number="0" name="advphp-base.bracket" />
+                        </ends-with>
+                        <subscopes>
+                            <include syntax="self" collection="definitions" />
+                            <include syntax="self" collection="values" />
+                            <include syntax="self" collection="identifiers" />
+                            <include syntax="self" collection="syntax" />
+                            <scope name="advphp-base.varSubstitution">
+                                <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
+                                <capture number="1" name="advphp-base.identifier.variable.this" />
+                                <capture number="2" name="advphp-base.identifier.variable.name" />
+                            </scope>
+                            <scope name="advphp-base.varSubstitution">
+                                <starts-with>
+                                    <expression>\[</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </starts-with>
+                                <ends-with>
+                                    <expression>\]</expression>
+                                    <capture number="0" name="advphp-base.bracket" />
+                                </ends-with>
+                                <subscopes>
+                                    <include syntax="self" collection="definitions" />
+                                    <include syntax="self" collection="values" />
+                                    <include syntax="self" collection="identifiers" />
+                                    <include syntax="self" collection="syntax" />
+                                </subscopes>
+                            </scope>
+                        </subscopes>
+                    </scope>
+                    <scope name="advphp-base.varSubstitution">
+                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
+                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
+                        <capture number="3" name="advphp-base.identifier.variable.this" />
+                        <capture number="4" name="advphp-base.identifier.variable.name" />
+                    </scope>
+                </subscopes>
             </scope>
         </collection>
        
