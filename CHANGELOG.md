@@ -1,3 +1,7 @@
+## Version 1.0.1
+
+- README changes
+
 ## Version 1.0.0 
 
 ### Issue Fixes:

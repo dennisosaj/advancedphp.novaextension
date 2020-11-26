@@ -26,11 +26,11 @@ advanced PHP currently supports the following features:
 
 ✅ supports Nova's rainbow brackets option
 
-✅ subtree support
+✅ supports Nova's hierarchical subtree 
 
-✅ function etc. folding
+✅ supports Nova's function folding
 
-✅ completions and suggestions
+✅ offers completions and suggestions
 
 ### advanced PHP:
 ![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
@@ -48,8 +48,9 @@ Same theme in both cases.
 
 The syntax provides an easy way to improve the highlighting for theme developers.
 
+
+### Statics
 ```
-/* Statics */
 advphp-base.static.condition { 
     /* if, else, elseif, foreach, ... */
 }
@@ -68,8 +69,10 @@ advphp-base.static.constant {
 advphp-base.static.wordOperator {
     /* AND, OR, XOR, ... */
 }
+```
 
-/* Syntax */
+### Syntax
+```
 advphp-base.operator {
     /* +, -, /, >, ... */
 }
@@ -79,8 +82,10 @@ advphp-base.bracket {
 advphp-base.delimiter {
     /* , */
 }
+```
 
-/* Variables */
+### Variables
+```
 advphp-base.identifier.variable.prefix {
     /* $ */
 }
@@ -90,27 +95,33 @@ advphp-base.identifier.variable.name {
 advphp-base.identifier.variable.this {
     /* $this */
 }
+```
 
-/* Functions */
+### Functions
+```
 advphp-base.identifier.function.keyword {
     /* function */
 }
 advphp-base.identifier.function.name {
     /* my_function() */
 }
-advphp-base.arguments {
-    /* my_function($argument) {} */
+advphp-base.parameters {
+    /* my_function($parameter) {} */
 }
-advphp-base.identifier.argument.name {
-    /* my_function($argument) {} */
+advphp-base.identifier.parameter.name {
+    /* my_function($parameter) {} */
 }
+```
 
-/* Objects */
+### Objects
+```
 advphp-base.identifier.object.name {
     /* Object:: */
 }
+```
 
-/* Strings */
+### Strings 
+```
 advphp-base.string,
 advphp-base.value.string,
 advphp-base.string.doubleQuote {
