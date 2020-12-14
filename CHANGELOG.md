@@ -1,3 +1,7 @@
+## Version 1.1.1
+
+- adding of (more) static keywords to PHP and SQL
+
 ## Version 1.1.0
 
 ### New Features:

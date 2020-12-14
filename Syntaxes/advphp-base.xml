@@ -137,6 +137,7 @@
                     <string>yield</string>
                     <string>yield from</string>
                     <string>print</string>
+                    <string>print_r</string>
                 </strings>
             </scope>
             <scope name="advphp-base.static.declaration">
@@ -267,6 +268,7 @@
                     <string>CURRENT_USER</string>
                     <string>CURSOR</string>
                     <string>DATE</string>
+                    <string>DATETIME</string>
                     <string>DAY</string>
                     <string>DEALLOCATE</string>
                     <string>DEC</string>
