@@ -1,3 +1,7 @@
+## Version 1.1.2
+
+- adding of static keywords for CURL
+
 ## Version 1.1.1
 
 - adding of (more) static keywords to PHP and SQL

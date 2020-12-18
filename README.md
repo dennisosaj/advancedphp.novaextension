@@ -4,6 +4,8 @@
 
 advanced PHP provides syntax highlighting for special PHP writing. It is also fully compatible with HTML, you don't need to switch between syntaxes.
 
+*Note:* you need a compatible Theme, like [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension), for proper highlighting.
+
 ## Why, though? 🤔
 
 Nova is a pretty editor with rich features, but it seems in lacking for language support. Because I'm a long time Sublime Text 3 user I wanted to get some fresh air and started looking into Nova. Unfortunately all my projects looked horrible with the standard PHP-HTML syntax, so I started building this extension. 
@@ -72,6 +74,13 @@ advphp-base.static.constant {
 }
 advphp-base.static.wordOperator {
     /* AND, OR, XOR, ... */
+}
+```
+
+### CURL Keywords
+```
+advphp-base.curl.keywords {
+    /* CURLOPT_HEADER, CURLOPT_PROXY, ... */
 }
 ```
 
