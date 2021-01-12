@@ -75,25 +75,23 @@
             ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
              ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
         -->
-        <!-- Comments -->
+        <!-- Comments -->     
         <collection name="comments">
-            <scope name="advphp-base.comment.single">
+            <scope name="advphp.comment.single" spell-check="false">
                 <expression>(?:(?:\/\/)|\#)(.*?)(?:(?=\?&gt;)|$)</expression>
-                <capture number="1" name="advphp-base.comment.content" />
-                <capture number="2" name="advphp-base.comment.content" />
+                <capture number="1" name="advphp.comment.content" />
             </scope>
-
-            <scope name="advphp-base.comment.multi">
-               <starts-with>
+            <scope name="advphp.comment.multi" spell-check="false">
+                <starts-with>
                     <expression>\/\*</expression>
-                    <capture number="0" name="advphp-base.comment.content" />
                 </starts-with>
                 <ends-with>
                     <expression>\*\/</expression>
-                    <capture number="0" name="advphp-base.comment.content" />
                 </ends-with>
             </scope>
         </collection>
+        
+        
         
         <!--
             ███████╗████████╗ █████╗ ████████╗██╗ ██████╗███████╗
@@ -105,7 +103,7 @@
         -->
         <!-- Statics -->
         <collection name="statics">
-            <scope name="advphp-base.static.condition">
+            <scope name="advphp.static.condition">
                 <strings>
                     <!-- reserved conditions -->
                     <string>if</string>
@@ -126,9 +124,10 @@
                     <string>do</string>
                     <string>while</string>
                     <string>endwhile</string>
+                    <string>exit</string>
                 </strings>
             </scope>
-            <scope name="advphp-base.static.processor">
+            <scope name="advphp.static.processor">
                 <strings>
                     <!-- reserved processors -->
                     <string>echo</string>
@@ -140,7 +139,7 @@
                     <string>print_r</string>
                 </strings>
             </scope>
-            <scope name="advphp-base.static.declaration">
+            <scope name="advphp.static.declaration">
                 <strings>
                     <!-- reserved declarations -->
                     <string>new</string>
@@ -153,9 +152,13 @@
                     <string>float</string>
                     <string>int</string>
                     <string>string</string>
+                    <string>bool</string>
+                    <string>iterable</string>
+                    <string>callable</string>
+                    <string>mixed</string>
                 </strings>
             </scope>
-            <scope name="advphp-base.static.import">
+            <scope name="advphp.static.import">
                 <strings>
                     <!-- reserved imports -->
                     <string>include</string>
@@ -164,7 +167,7 @@
                     <string>require_once</string>
                 </strings>
             </scope>
-            <scope name="advphp-base.static.constant">
+            <scope name="advphp.static.constant">
                 <strings>
                     <!-- reserved variables -->
                     <string>__DIR__</string>
@@ -192,7 +195,7 @@
                     <string>E_WARNING</string>  
                 </strings>
             </scope>
-            <scope name="advphp-base.static.wordOperator">
+            <scope name="advphp.static.wordOperator">
                 <strings>
                     <!-- reserved word operators -->
                     <string>AND</string>
@@ -208,7 +211,7 @@
         </collection>
         
         <collection name="curls">
-            <scope name="advphp-base.curl.keywords">
+            <scope name="advphp.curl.keywords">
                 <!-- reserved CURL keywords -->
                 <strings>
                     <string>CURLOPT_VERBOSE</string>
@@ -501,7 +504,7 @@
         </collection>
         
         <collection name="sqls">
-            <scope name="advphp-base.sql.keywords">
+            <scope name="advphp.sql.keywords">
                 <!-- reserved SQL keywords -->
                 <strings case-insensitive="false">
                     <string>ABSOLUTE</string>
@@ -636,6 +639,7 @@
                     <string>LEFT</string>
                     <string>LEVEL</string>
                     <string>LIKE</string>
+                    <string>LIMIT</string>
                     <string>LOCAL</string>
                     <string>LOCK</string>
                     <string>LOWER</string>
@@ -758,35 +762,35 @@
         -->
         <!-- Definitions -->
         <collection name="definitions">
-            <scope name="advphp-base.definition.class">
+            <scope name="advphp.definition.class">
                 <symbol type="class">
                     <context behavior="subtree" foldable="false" />
                 </symbol>
                 <starts-with>
                     <expression>(class)\s+([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                    <capture number="1" name="advphp-base.static.declaration" />
-                    <capture number="2" name="advphp-base.static.constant" />
+                    <capture number="1" name="advphp.static.declaration" />
+                    <capture number="2" name="advphp.static.constant" />
                 </starts-with>
                 <ends-with>
                     <expression>(?&lt;=\})</expression>
                 </ends-with>
                 <subscopes>
-                    <scope name="advphp-base.definition.extends">
+                    <scope name="advphp.definition.extends">
                         <expression>(extends)\s+([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                        <capture number="1" name="advphp-base.static.processor" />
-                        <capture number="2" name="advphp-base.static.constant" />
+                        <capture number="1" name="advphp.static.processor" />
+                        <capture number="2" name="advphp.static.constant" />
                     </scope>
-                    <scope name="advphp-base.block">
+                    <scope name="advphp.block">
                         <symbol type="block">
                             <context behavior="subtree" fold-type="class" />
                         </symbol>
                         <starts-with>
                             <expression>\{</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
                             <include syntax="self" collection="comments" />
@@ -800,62 +804,62 @@
                     </scope>
                 </subscopes>
             </scope>
-            <scope name="advphp-base.definition.interface">
+            <scope name="advphp.definition.interface">
                 <symbol type="interface" scope="global">
                     <context behavior="start" group="class"/>
                 </symbol>
                 <expression>(interface)\s+([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                <capture number="1" name="advphp-base.static.declaration" />
-                <capture number="2" name="advphp-base.static.constant" />
+                <capture number="1" name="advphp.static.declaration" />
+                <capture number="2" name="advphp.static.constant" />
             </scope>
-            <scope name="advphp-base.definition.function">
+            <scope name="advphp.definition.function">
                 <symbol type="function">
                     <context behavior="subtree" foldable="false" />
                 </symbol>
                 <starts-with>
                     <expression>(function)\s+([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                    <capture number="1" name="advphp-base.identifier.function.keyword" />
-                    <capture number="2" name="advphp-base.identifier.function.name" />
+                    <capture number="1" name="advphp.identifier.function.keyword" />
+                    <capture number="2" name="advphp.identifier.function.name" />
                 </starts-with>
                 <ends-with>
                     <expression>(?&lt;=\})</expression>
                 </ends-with>
                 <subscopes>
-                    <scope name="advphp-base.identifier.parameter">
+                    <scope name="advphp.identifier.parameter">
                         <starts-with>
                             <expression>(\()</expression>
-                            <capture number="1" name="advphp-base.bracket" />
+                            <capture number="1" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\)</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
-                            <scope name="advphp-base.separator">
+                            <scope name="advphp.separator">
                                 <expression>,</expression>
-                                <capture number="0" name="advphp-base.delimiter" />
+                                <capture number="0" name="advphp.delimiter" />
                             </scope>
-                            <scope name="advphp-base.parameters">
+                            <scope name="advphp.parameters">
                                 <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                                <capture number="1" name="advphp-base.identifier.parameter.prefix" />
-                                <capture number="3" name="advphp-base.identifier.parameter.this" />
-                                <capture number="4" name="advphp-base.identifier.parameter.name" />
+                                <capture number="1" name="advphp.identifier.parameter.prefix" />
+                                <capture number="3" name="advphp.identifier.parameter.this" />
+                                <capture number="4" name="advphp.identifier.parameter.name" />
                             </scope>
-                            <include syntax="self" collection="syntax" />  
+                            <include syntax="self" collection="syntax" />
                             <include syntax="self" collection="values" />  
                         </subscopes>
                     </scope>
-                    <scope name="advphp-base.block">
+                    <scope name="advphp.block">
                         <symbol type="block">
                             <context behavior="subtree" fold-type="function" />
                         </symbol>
                         <starts-with>
                             <expression>\{</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
                             <include syntax="self" collection="comments" />
@@ -869,53 +873,53 @@
                     </scope>
                 </subscopes>
             </scope>
-            <scope name="advphp-base.definition.function.anonymous">
+            <scope name="advphp.definition.function.anonymous">
                 <symbol type="block">
                     <context behavior="subtree" foldable="false" />
                 </symbol>
                 <starts-with>
                     <expression>(function)\s*(?=\()</expression>
-                    <capture number="1" name="advphp-base.identifier.function.keyword" />
+                    <capture number="1" name="advphp.identifier.function.keyword" />
                 </starts-with>
                 <ends-with>
                     <expression>(?&lt;=\})</expression>
                 </ends-with>
                 <subscopes>
-                    <scope name="advphp-base.identifier.parameter">
+                    <scope name="advphp.identifier.parameter">
                         <starts-with>
                             <expression>(\()</expression>
-                            <capture number="1" name="advphp-base.bracket" />
+                            <capture number="1" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\)</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
-                            <scope name="advphp-base.separator">
+                            <scope name="advphp.separator">
                                 <expression>,</expression>
-                                <capture number="0" name="advphp-base.delimiter" />
+                                <capture number="0" name="advphp.delimiter" />
                             </scope>
-                            <scope name="advphp-base.parameters">
+                            <scope name="advphp.parameters">
                                 <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                                <capture number="1" name="advphp-base.identifier.parameter.prefix" />
-                                <capture number="3" name="advphp-base.identifier.parameter.this" />
-                                <capture number="4" name="advphp-base.identifier.parameter.name" />
+                                <capture number="1" name="advphp.identifier.parameter.prefix" />
+                                <capture number="3" name="advphp.identifier.parameter.this" />
+                                <capture number="4" name="advphp.identifier.parameter.name" />
                             </scope>
                             <include syntax="self" collection="syntax" />  
                             <include syntax="self" collection="values" />  
                         </subscopes>
                     </scope>
-                    <scope name="advphp-base.block">
+                    <scope name="advphp.block">
                         <symbol type="block">
                             <context behavior="subtree" fold-type="function" />
                         </symbol>
                         <starts-with>
                             <expression>\{</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
                             <include syntax="self" collection="comments" />
@@ -942,13 +946,14 @@
         <!-- Values -->
         <collection name="values">
             <include syntax="self" collection="strings" />
-            <scope name="advphp-base.value.null">
+            <include syntax="self" collection="backTics" />
+            <scope name="advphp.value.null">
                 <strings>
                     <string>null</string>
                     <string>NULL</string>
                 </strings>
             </scope>
-            <scope name="advphp-base.value.boolean">
+            <scope name="advphp.value.boolean">
                 <strings>
                     <string>true</string>
                     <string>false</string>
@@ -956,29 +961,29 @@
                     <string>FALSE</string>
                 </strings>
             </scope>
-            <scope name="advphp-base.value.number.bin">
+            <scope name="advphp.value.number.bin">
                 <expression>\b0b[0-1]+\b</expression>
             </scope>
-            <scope name="advphp-base.value.number.hex">
+            <scope name="advphp.value.number.hex">
                 <expression>\b0x[a-fA-F0-9]+\b</expression>
             </scope>
-            <scope name="advphp-base.value.number.oct">
+            <scope name="advphp.value.number.oct">
                 <expression>\b0o[0-7]+\b</expression>
             </scope>
-            <scope name="advphp-base.value.number">
+            <scope name="advphp.value.number">
                 <expression>\b\-?(?:\d+(?:\.\d)?|(?:\.\d+))\b</expression>
             </scope>
-            <scope name="advphp-base.value.list">
+            <scope name="advphp.value.list">
                 <symbol type="expression">
                     <context behavior="subtree" />
                 </symbol>
                 <starts-with>
                     <expression>\[</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
                     <expression>\]</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
                     <include syntax="self" collection="comments" />
@@ -1000,53 +1005,71 @@
         -->
         <!-- Strings -->
         <collection name="strings">
-            <scope name="advphp-base.string.doubleQuote.sql">
+        
+            <scope name="advphp.string.nowdoc">
                 <starts-with>
-                    <expression>(")(ABSOLUTE\b|ACTION\b|ADA\b|ADD\b|ALL\b|ALLOCATE\b|ALTER\b|AND\b|ANY\b|ARE\b|AS\b|ASC\b|ASSERTION\b|AT\b|AUTHORIZATION\b|AVG\b|BEGIN\b|BETWEEN\b|BIT\b|BIT_LENGTH\b|BOTH\b|BTREE\b|BY\b|CASCADE\b|CASCADED\b|CASE\b|CAST\b|CATALOG\b|CHAR\b|CHARACTER\b|CHARACTER_LENGTH\b|CHAR_LENGTH\b|CHARSET\b|CHECK\b|CLOSE\b|COALESCE\b|COLLATE\b|COLLATION\b|COLUMN\b|COMMIT\b|CONNECT\b|CONNECTION\b|CONSTRAINT\b|CONSTRAINTS\b|CONTINUE\b|CONVERT\b|CORRESPONDING\b|COUNT\b|CREATE\b|CROSS\b|CURRENT\b|CURRENT_DATE\b|CURRENT_TIME\b|CURRENT_TIMESTAMP\b|CURRENT_USER\b|CURSOR\b|DATE\b|DAY\b|DEALLOCATE\b|DEC\b|DECIMAL\b|DECLARE\b|DEFAULT\b|DEFERRABLE\b|DEFERRED\b|DELETE\b|DESC\b|DESCRIBE\b|DESCRIPTOR\b|DIAGNOSTICS\b|DISCONNECT\b|DISTINCT\b|DOMAIN\b|DOUBLE\b|DROP\b|ELSE\b|END\b|END\b|ENGINE\b|ESCAPE\b|EXCEPT\b|EXCEPTION\b|EXEC\b|EXECUTE\b|EXISTS\b|EXTERNAL\b|EXTRACT\b|FETCH\b|FIRST\b|FLOAT\b|FOR\b|FOREIGN\b|FORTRAN\b|FOUND\b|FROM\b|FULL\b|GET\b|GLOBAL\b|GO\b|GOTO\b|GRANT\b|GROUP\b|HAVING\b|HOUR\b|IDENTITY\b|IF\b|IMMEDIATE\b|IN\b|INCLUDE\b|INDEX\b|INDICATOR\b|INITIALLY\b|INNER\b|INPUT\b|INSENSITIVE\b|INSERT\b|INT\b|INTEGER\b|INTERSECT\b|INTERVAL\b|INTO\b|IS\b|ISOLATION\b|JOIN\b|KEY\b|LANGUAGE\b|LAST\b|LEADING\b|LEFT\b|LEVEL\b|LIKE\b|LOCAL\b|LOCK\b|LOWER\b|MATCH\b|MAX\b|MIN\b|MINUTE\b|MODULE\b|MONTH\b|NAMES\b|NATIONAL\b|NATURAL\b|NCHAR\b|NEXT\b|NO\b|NONE\b|NOT\b|NULLIF\b|NUMERIC\b|OCTET_LENGTH\b|OF\b|ON\b|ONLY\b|OPEN\b|OPTION\b|OR\b|ORDER\b|OUTER\b|OUTPUT\b|OVERLAPS\b|PAD\b|PARTIAL\b|PASCAL\b|POSITION\b|PRECISION\b|PREPARE\b|PRESERVE\b|PRIMARY\b|PRIOR\b|PRIVILEGES\b|PROCEDURE\b|PUBLIC\b|READ\b|REAL\b|REFERENCES\b|RELATIVE\b|RESTRICT\b|REVOKE\b|RIGHT\b|ROLLBACK\b|ROWS\b|SCHEMA\b|SCROLL\b|SECOND\b|SECTION\b|SELECT\b|SESSION\b|SESSION_USER\b|SET\b|SIZE\b|SMALLINT\b|SOME\b|SPACE\b|SQL\b|SQLCA\b|SQLCODE\b|SQLERROR\b|SQLSTATE\b|SQLWARNING\b|SUBSTRING\b|SUM\b|SYSTEM_USER\b|TABLE\b|TABLES\b|TEMPORARY\b|THEN\b|TIME\b|TIMESTAMP\b|TIMEZONE_HOUR\b|TIMEZONE_MINUTE\b|TO\b|TRAILING\b|TRANSACTION\b|TRANSLATE\b|TRANSLATION\b|TRIM\b|UNION\b|UNIQUE\b|UNKNOWN\b|UNLOCK\b|UPDATE\b|UPPER\b|USAGE\b|USER\b|USING\b|VALUE\b|VALUES\b|VARCHAR\b|VARYING\b|VIEW\b|WHEN\b|WHENEVER\b|WHERE\b|WITH\b|WORK\b|WRITE\b|YEAR\b|ZONE\b)</expression>
-                    <capture number="1" name="advphp-base.bracket" />
-                    <capture number="2" name="advphp-base.sql.keywords" />
+                    <expression>(&lt;&lt;&lt;)&apos;([a-zA-Z0-9_]+)&apos;</expression>
+                    <capture number="1" name="advphp.bracket" />
+                    <capture number="2" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
-                    <expression>"</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <template>^\s*($2)(;)?</template>
+                    <capture number="1" name="advphp.bracket" />
+                    <capture number="2" name="advphp.bracket" />
+                </ends-with>
+                <subscopes />
+            </scope>
+            <scope name="advphp.string.heredoc">
+                <starts-with>
+                    <expression>(&lt;&lt;&lt;)([a-zA-Z0-9_\x7f-\xff]+)</expression>
+                    <capture number="1" name="advphp.bracket" />
+                    <capture number="2" name="advphp.bracket" />
+                </starts-with>
+                <ends-with>
+                    <template>^\s*($2)(;)?</template>
+                    <capture number="1" name="advphp.bracket" />
+                    <capture number="2" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
                     <include syntax="self" collection="sqls" />
-                    <include syntax="self" collection="strings" />
-                    <include syntax="self" collection="syntax" />
-                    <scope name="advphp-base.string.doubleQuote.escape">
-                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
-                        <capture number="1" name="advphp-base.value.string" />
+                    <include syntax="self" collection="backTics" />
+                    <scope name="advphp.varSubstitution">
+                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
+                        <capture number="1" name="advphp.identifier.variable.prefix" />
+                        <capture number="3" name="advphp.identifier.variable.this" />
+                        <capture number="4" name="advphp.identifier.variable.name" />
                     </scope>
-                    <scope name="advphp-base.curlyVarSubstitution">
+                    <scope name="advphp.curlyVarSubstitution">
                         <starts-with>
                             <expression>\{\$</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
+                            <include syntax="self" collection="statics" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
                             <include syntax="self" collection="syntax" />
-                            <scope name="advphp-base.varSubstitution">
+                            <scope name="advphp.varSubstitution">
                                 <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                                <capture number="1" name="advphp-base.identifier.variable.this" />
-                                <capture number="2" name="advphp-base.identifier.variable.name" />
+                                <capture number="1" name="advphp.identifier.variable.this" />
+                                <capture number="2" name="advphp.identifier.variable.name" />
                             </scope>
-                            <scope name="advphp-base.varSubstitution">
+                            <scope name="advphp.varSubstitution">
                                 <starts-with>
                                     <expression>\[</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
+                                    <capture number="0" name="advphp.bracket" />
                                 </starts-with>
                                 <ends-with>
                                     <expression>\]</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
+                                    <capture number="0" name="advphp.bracket" />
                                 </ends-with>
                                 <subscopes>
+                                    <include syntax="self" collection="statics" />
                                     <include syntax="self" collection="definitions" />
                                     <include syntax="self" collection="values" />
                                     <include syntax="self" collection="identifiers" />
@@ -1055,57 +1078,58 @@
                             </scope>
                         </subscopes>
                     </scope>
-                    <scope name="advphp-base.varSubstitution">
-                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
-                        <capture number="3" name="advphp-base.identifier.variable.this" />
-                        <capture number="4" name="advphp-base.identifier.variable.name" />
-                    </scope>
                 </subscopes>
             </scope>
-            <scope name="advphp-base.string.doubleQuote">
+            
+            <scope name="advphp.string.doubleQuote">
                 <starts-with>
-                    <expression>"</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <expression>&quot;</expression>
+                    <capture number="0" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
-                    <expression>"</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <expression>&quot;|(?:(?&lt;!\\)&quot;)</expression>
+                    <capture number="0" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
-                    <scope name="advphp-base.string.doubleQuote.escape">
-                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
-                        <capture number="1" name="advphp-base.value.string" />
+                    <include syntax="self" collection="sqls" />
+                    <include syntax="self" collection="backTics" />
+                    <scope name="advphp.varSubstitution">
+                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
+                        <capture number="1" name="advphp.identifier.variable.prefix" />
+                        <capture number="3" name="advphp.identifier.variable.this" />
+                        <capture number="4" name="advphp.identifier.variable.name" />
                     </scope>
-                    <scope name="advphp-base.curlyVarSubstitution">
+                    <scope name="advphp.curlyVarSubstitution">
                         <starts-with>
                             <expression>\{\$</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </starts-with>
                         <ends-with>
                             <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
+                            <capture number="0" name="advphp.bracket" />
                         </ends-with>
                         <subscopes>
+                            <include syntax="self" collection="statics" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
                             <include syntax="self" collection="syntax" />
-                            <scope name="advphp-base.varSubstitution">
+                            <scope name="advphp.varSubstitution">
                                 <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                                <capture number="1" name="advphp-base.identifier.variable.this" />
-                                <capture number="2" name="advphp-base.identifier.variable.name" />
+                                <capture number="1" name="advphp.identifier.variable.this" />
+                                <capture number="2" name="advphp.identifier.variable.name" />
                             </scope>
-                            <scope name="advphp-base.varSubstitution">
+                            <scope name="advphp.varSubstitution">
                                 <starts-with>
                                     <expression>\[</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
+                                    <capture number="0" name="advphp.bracket" />
                                 </starts-with>
                                 <ends-with>
                                     <expression>\]</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
+                                    <capture number="0" name="advphp.bracket" />
                                 </ends-with>
                                 <subscopes>
+                                    <include syntax="self" collection="statics" />
                                     <include syntax="self" collection="definitions" />
                                     <include syntax="self" collection="values" />
                                     <include syntax="self" collection="identifiers" />
@@ -1114,155 +1138,49 @@
                             </scope>
                         </subscopes>
                     </scope>
-                    <scope name="advphp-base.varSubstitution">
-                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
-                        <capture number="3" name="advphp-base.identifier.variable.this" />
-                        <capture number="4" name="advphp-base.identifier.variable.name" />
-                    </scope>
                 </subscopes>
             </scope>
-            <scope name="advphp-base.string.singleQuote.sql">
+            
+            <scope name="advphp.string.singleQuote">
                 <starts-with>
-                    <expression>(')(ABSOLUTE\b|ACTION\b|ADA\b|ADD\b|ALL\b|ALLOCATE\b|ALTER\b|AND\b|ANY\b|ARE\b|AS\b|ASC\b|ASSERTION\b|AT\b|AUTHORIZATION\b|AVG\b|BEGIN\b|BETWEEN\b|BIT\b|BIT_LENGTH\b|BOTH\b|BTREE\b|BY\b|CASCADE\b|CASCADED\b|CASE\b|CAST\b|CATALOG\b|CHAR\b|CHARACTER\b|CHARACTER_LENGTH\b|CHAR_LENGTH\b|CHARSET\b|CHECK\b|CLOSE\b|COALESCE\b|COLLATE\b|COLLATION\b|COLUMN\b|COMMIT\b|CONNECT\b|CONNECTION\b|CONSTRAINT\b|CONSTRAINTS\b|CONTINUE\b|CONVERT\b|CORRESPONDING\b|COUNT\b|CREATE\b|CROSS\b|CURRENT\b|CURRENT_DATE\b|CURRENT_TIME\b|CURRENT_TIMESTAMP\b|CURRENT_USER\b|CURSOR\b|DATE\b|DAY\b|DEALLOCATE\b|DEC\b|DECIMAL\b|DECLARE\b|DEFAULT\b|DEFERRABLE\b|DEFERRED\b|DELETE\b|DESC\b|DESCRIBE\b|DESCRIPTOR\b|DIAGNOSTICS\b|DISCONNECT\b|DISTINCT\b|DOMAIN\b|DOUBLE\b|DROP\b|ELSE\b|END\b|END\b|ENGINE\b|ESCAPE\b|EXCEPT\b|EXCEPTION\b|EXEC\b|EXECUTE\b|EXISTS\b|EXTERNAL\b|EXTRACT\b|FETCH\b|FIRST\b|FLOAT\b|FOR\b|FOREIGN\b|FORTRAN\b|FOUND\b|FROM\b|FULL\b|GET\b|GLOBAL\b|GO\b|GOTO\b|GRANT\b|GROUP\b|HAVING\b|HOUR\b|IDENTITY\b|IF\b|IMMEDIATE\b|IN\b|INCLUDE\b|INDEX\b|INDICATOR\b|INITIALLY\b|INNER\b|INPUT\b|INSENSITIVE\b|INSERT\b|INT\b|INTEGER\b|INTERSECT\b|INTERVAL\b|INTO\b|IS\b|ISOLATION\b|JOIN\b|KEY\b|LANGUAGE\b|LAST\b|LEADING\b|LEFT\b|LEVEL\b|LIKE\b|LOCAL\b|LOCK\b|LOWER\b|MATCH\b|MAX\b|MIN\b|MINUTE\b|MODULE\b|MONTH\b|NAMES\b|NATIONAL\b|NATURAL\b|NCHAR\b|NEXT\b|NO\b|NONE\b|NOT\b|NULLIF\b|NUMERIC\b|OCTET_LENGTH\b|OF\b|ON\b|ONLY\b|OPEN\b|OPTION\b|OR\b|ORDER\b|OUTER\b|OUTPUT\b|OVERLAPS\b|PAD\b|PARTIAL\b|PASCAL\b|POSITION\b|PRECISION\b|PREPARE\b|PRESERVE\b|PRIMARY\b|PRIOR\b|PRIVILEGES\b|PROCEDURE\b|PUBLIC\b|READ\b|REAL\b|REFERENCES\b|RELATIVE\b|RESTRICT\b|REVOKE\b|RIGHT\b|ROLLBACK\b|ROWS\b|SCHEMA\b|SCROLL\b|SECOND\b|SECTION\b|SELECT\b|SESSION\b|SESSION_USER\b|SET\b|SIZE\b|SMALLINT\b|SOME\b|SPACE\b|SQL\b|SQLCA\b|SQLCODE\b|SQLERROR\b|SQLSTATE\b|SQLWARNING\b|SUBSTRING\b|SUM\b|SYSTEM_USER\b|TABLE\b|TABLES\b|TEMPORARY\b|THEN\b|TIME\b|TIMESTAMP\b|TIMEZONE_HOUR\b|TIMEZONE_MINUTE\b|TO\b|TRAILING\b|TRANSACTION\b|TRANSLATE\b|TRANSLATION\b|TRIM\b|UNION\b|UNIQUE\b|UNKNOWN\b|UNLOCK\b|UPDATE\b|UPPER\b|USAGE\b|USER\b|USING\b|VALUE\b|VALUES\b|VARCHAR\b|VARYING\b|VIEW\b|WHEN\b|WHENEVER\b|WHERE\b|WITH\b|WORK\b|WRITE\b|YEAR\b|ZONE\b)</expression>
-                    <capture number="1" name="advphp-base.bracket" />
-                    <capture number="2" name="advphp-base.sql.keywords" />
+                    <expression>&apos;</expression>
+                    <capture number="0" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
-                    <expression>'</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <expression>&apos;|(?:(?&lt;!\\)&apos;)</expression>
+                    <capture number="0" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
                     <include syntax="self" collection="sqls" />
-                    <include syntax="self" collection="strings" />
-                    <include syntax="self" collection="syntax" />
-                    <scope name="advphp-base.string.singleQuote.escape">
-                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
-                        <capture number="1" name="advphp-base.value.string" />
-                    </scope>
-                    <scope name="advphp-base.curlyVarSubstitution">
-                        <starts-with>
-                            <expression>\{\$</expression>
-                            <capture number="0" name="advphp-base.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" collection="definitions" />
-                            <include syntax="self" collection="values" />
-                            <include syntax="self" collection="identifiers" />
-                            <include syntax="self" collection="syntax" />
-                            <scope name="advphp-base.varSubstitution">
-                                <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                                <capture number="1" name="advphp-base.identifier.variable.this" />
-                                <capture number="2" name="advphp-base.identifier.variable.name" />
-                            </scope>
-                            <scope name="advphp-base.varSubstitution">
-                                <starts-with>
-                                    <expression>\[</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
-                                </starts-with>
-                                <ends-with>
-                                    <expression>\]</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
-                                </ends-with>
-                                <subscopes>
-                                    <include syntax="self" collection="definitions" />
-                                    <include syntax="self" collection="values" />
-                                    <include syntax="self" collection="identifiers" />
-                                    <include syntax="self" collection="syntax" />
-                                </subscopes>
-                            </scope>
-                        </subscopes>
-                    </scope>
-                    <scope name="advphp-base.varSubstitution">
-                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
-                        <capture number="3" name="advphp-base.identifier.variable.this" />
-                        <capture number="4" name="advphp-base.identifier.variable.name" />
+                    <include syntax="self" collection="backTics" />
+                    <scope name="advphp.string.singleQuote.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f)</expression>
                     </scope>
                 </subscopes>
             </scope>
-            <scope name="advphp-base.string.singleQuote">
-                <starts-with>
-                    <expression>'</expression>
-                    <capture number="0" name="advphp-base.bracket" />
-                </starts-with>
-                <ends-with>
-                    <expression>'</expression>
-                    <capture number="0" name="advphp-base.bracket" />
-                </ends-with>
-                <subscopes>
-                    <include syntax="self" collection="sqls" />
-                    <scope name="advphp-base.string.singleQuote.escape">
-                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
-                        <capture number="1" name="advphp-base.value.string" />
-                    </scope>
-                </subscopes>
-            </scope>
-            <scope name="advphp-base.string.backTic">
+            
+        </collection>
+        
+        <!-- BackTics -->
+        <!-- Keep as own collection because of includes as substring -->
+        <collection name="backTics">
+            <scope name="advphp.backTic.string">
                 <starts-with>
                     <expression>`</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
-                    <expression>`</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <expression>`|(?:(?&lt;!\\)`)</expression>
+                    <capture number="0" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
-                    <scope name="advphp-base.string.backTic.escape">
-                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f|\$)</expression>
-                        <capture number="1" name="advphp-base.value.string" />
-                    </scope>
-                    <scope name="advphp-base.curlyVarSubstitution">
-                        <starts-with>
-                            <expression>\{\$</expression>
-                            <capture number="0" name="advphp-base.bracket" />
-                        </starts-with>
-                        <ends-with>
-                            <expression>\}</expression>
-                            <capture number="0" name="advphp-base.bracket" />
-                        </ends-with>
-                        <subscopes>
-                            <include syntax="self" collection="definitions" />
-                            <include syntax="self" collection="values" />
-                            <include syntax="self" collection="identifiers" />
-                            <include syntax="self" collection="syntax" />
-                            <scope name="advphp-base.varSubstitution">
-                                <expression>(\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                                <capture number="1" name="advphp-base.identifier.variable.this" />
-                                <capture number="2" name="advphp-base.identifier.variable.name" />
-                            </scope>
-                            <scope name="advphp-base.varSubstitution">
-                                <starts-with>
-                                    <expression>\[</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
-                                </starts-with>
-                                <ends-with>
-                                    <expression>\]</expression>
-                                    <capture number="0" name="advphp-base.bracket" />
-                                </ends-with>
-                                <subscopes>
-                                    <include syntax="self" collection="definitions" />
-                                    <include syntax="self" collection="values" />
-                                    <include syntax="self" collection="identifiers" />
-                                    <include syntax="self" collection="syntax" />
-                                </subscopes>
-                            </scope>
-                        </subscopes>
-                    </scope>
-                    <scope name="advphp-base.varSubstitution">
-                        <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                        <capture number="1" name="advphp-base.identifier.variable.prefix" />
-                        <capture number="3" name="advphp-base.identifier.variable.this" />
-                        <capture number="4" name="advphp-base.identifier.variable.name" />
+                    <scope name="advphp.string.backTic.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|`|n|r|t|b|f)</expression>
                     </scope>
                 </subscopes>
             </scope>
         </collection>
-       
+        
         <!--
             ██╗██████╗ ███████╗███╗   ██╗████████╗██╗███████╗██╗███████╗██████╗ ███████╗
             ██║██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗██╔════╝
@@ -1273,33 +1191,33 @@
         -->
         <!-- Identifiers -->
         <collection name="identifiers">
-            <scope name="advphp-base.identifier.variable">
+            <scope name="advphp.identifier.variable">
                 <symbol type="variable" scope="local" />
                 <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
-                <capture number="1" name="advphp-base.identifier.variable.prefix" />
-                <capture number="3" name="advphp-base.identifier.variable.this" />
-                <capture number="4" name="advphp-base.identifier.variable.name" />
+                <capture number="1" name="advphp.identifier.variable.prefix" />
+                <capture number="3" name="advphp.identifier.variable.this" />
+                <capture number="4" name="advphp.identifier.variable.name" />
             </scope>
-            <scope name="advphp-base.identifier.objectMethod">
+            <scope name="advphp.identifier.objectMethod">
                 <expression>(\-\>)([a-zA-Z_][a-zA-Z0-9_]*)(\()</expression>
-                <capture number="1" name="advphp-base.operator" />
-                <capture number="2" name="advphp-base.identifier.function.name" />
-                <capture number="3" name="advphp-base.bracket" />
+                <capture number="1" name="advphp.operator" />
+                <capture number="2" name="advphp.identifier.function.name" />
+                <capture number="3" name="advphp.bracket" />
             </scope>
-            <scope name="advphp-base.identifier.objectProperty">
+            <scope name="advphp.identifier.objectProperty">
                 <expression>(\-\>)([a-zA-Z_][a-zA-Z0-9_]*)</expression>
-                <capture number="1" name="advphp-base.operator" />
-                <capture number="2" name="advphp-base.identifier.variable.name" />
+                <capture number="1" name="advphp.operator" />
+                <capture number="2" name="advphp.identifier.variable.name" />
             </scope>
-            <scope name="advphp-base.identifier.function">
+            <scope name="advphp.identifier.function">
                 <expression>([a-zA-Z_{1}][a-zA-Z_][a-zA-Z0-9_]*)(\()</expression>
-                <capture number="1" name="advphp-base.identifier.function.name" />
-                <capture number="2" name="advphp-base.bracket" />
+                <capture number="1" name="advphp.identifier.function.name" />
+                <capture number="2" name="advphp.bracket" />
             </scope>
-            <scope name="advphp-base.identifier.object">
+            <scope name="advphp.identifier.object">
                 <expression>([a-zA-Z_{1}][a-zA-Z_][a-zA-Z0-9_]*)(\:\:)</expression>
-                <capture number="1" name="advphp-base.identifier.object.name" />
-                <capture number="2" name="advphp-base.operator" />
+                <capture number="1" name="advphp.identifier.object.name" />
+                <capture number="2" name="advphp.operator" />
             </scope>
         </collection>
 
@@ -1313,17 +1231,17 @@
         -->
         <!-- Blocks -->
         <collection name="blocks">
-            <scope name="advphp-base.block">
+            <scope name="advphp.block">
                 <symbol type="block">
                     <context behavior="subtree" />
                 </symbol>
                 <starts-with>
                     <expression>\{</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
                     <expression>\}</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
                     <cut-off>
@@ -1338,17 +1256,42 @@
                     <include syntax="self" collection="syntax" />   
                 </subscopes>
             </scope>
-            <scope name="advphp-base.square.block">
+            <scope name="advphp.square.block">
                 <symbol type="block">
                     <context behavior="subtree" />
                 </symbol>
                 <starts-with>
                     <expression>\[</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
                 </starts-with>
                 <ends-with>
                     <expression>\]</expression>
-                    <capture number="0" name="advphp-base.bracket" />
+                    <capture number="0" name="advphp.bracket" />
+                </ends-with>
+                <subscopes>
+                    <cut-off>
+                        <expression>(?=\?&gt;)</expression>
+                    </cut-off>
+                    <include syntax="self" collection="comments" />
+                    <include syntax="self" collection="statics" />
+                    <include syntax="self" collection="definitions" />
+                    <include syntax="self" collection="values" />
+                    <include syntax="self" collection="identifiers" />
+                    <include syntax="self" collection="blocks" />
+                    <include syntax="self" collection="syntax" />   
+                </subscopes>
+            </scope>
+            <scope name="advphp.round.block">
+                <symbol type="block">
+                    <context behavior="subtree" />
+                </symbol>
+                <starts-with>
+                    <expression>\(</expression>
+                    <capture number="0" name="advphp.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>\)</expression>
+                    <capture number="0" name="advphp.bracket" />
                 </ends-with>
                 <subscopes>
                     <cut-off>
@@ -1375,13 +1318,13 @@
         -->
         <!-- Syntax -->
         <collection name="syntax">
-            <scope name="advphp-base.bracket">
+            <scope name="advphp.bracket">
                 <expression>[\(\[\{\)\]\}]</expression>
             </scope>
-            <scope name="advphp-base.operator">
+            <scope name="advphp.operator">
                 <expression>(\+|\-|\*|\/|\%|\*\*|\=|\=\=|\=\=\=|\!\=|\&lt;\&gt;|\!\=\=|\&amp;|\^|\||\&lt;\&lt;|\&gt;\&gt;|\&lt;|\&lt;\=|\&gt;|\&gt;\=|\&lt;\=\&gt;|\+\+|\-\-|\&amp;\&amp;|\|\||\;|\!|\.|\.\=|\?|\:|\?\?)</expression>
             </scope>
-            <scope name="advphp-base.delimiter">
+            <scope name="advphp.delimiter">
                 <expression>,</expression>
             </scope>
         </collection>

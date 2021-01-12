@@ -1,3 +1,8 @@
+## Version 2.0.0
+
+- Nova 4 support 
+(if you don't use Nova 4, please stay at v1.1.2 since Nova made some changes to syntax file parsing)
+
 ## Version 1.1.2
 
 - adding of static keywords for CURL

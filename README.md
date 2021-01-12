@@ -57,99 +57,99 @@ The syntax provides an easy way to improve the highlighting for theme developers
 
 ### Statics
 ```
-advphp-base.static.condition { 
+advphp.static.condition { 
     /* if, else, elseif, foreach, ... */
 }
-advphp-base.static.processor { 
+advphp.static.processor { 
     /* echo, return, print, ... */
 }
-advphp-base.static.declaration {
+advphp.static.declaration {
     /* new, public, private, ... */
 }
-advphp-base.static.import {
+advphp.static.import {
     /* include, require, ... */
 }
-advphp-base.static.constant {
+advphp.static.constant {
     /* __DIR__, __METHOD__, ... */
 }
-advphp-base.static.wordOperator {
+advphp.static.wordOperator {
     /* AND, OR, XOR, ... */
 }
 ```
 
 ### CURL Keywords
 ```
-advphp-base.curl.keywords {
+advphp.curl.keywords {
     /* CURLOPT_HEADER, CURLOPT_PROXY, ... */
 }
 ```
 
 ### SQL Keywords
 ```
-advphp-base.sql.keywords {
+advphp.sql.keywords {
     /* SELECT, FROM, WHERE, ... */
 }
 ```
 
 ### Syntax
 ```
-advphp-base.operator {
+advphp.operator {
     /* +, -, /, >, ... */
 }
-advphp-base.bracket {
+advphp.bracket {
     /* [], {}, (), "", ... */
 }
-advphp-base.delimiter {
+advphp.delimiter {
     /* , */
 }
 ```
 
 ### Variables
 ```
-advphp-base.identifier.variable.prefix {
+advphp.identifier.variable.prefix {
     /* $ */
 }
-advphp-base.identifier.variable.name {
+advphp.identifier.variable.name {
     /* $variable */
 }
-advphp-base.identifier.variable.this {
+advphp.identifier.variable.this {
     /* $this */
 }
 ```
 
 ### Functions
 ```
-advphp-base.identifier.function.keyword {
+advphp.identifier.function.keyword {
     /* function */
 }
-advphp-base.identifier.function.name {
+advphp.identifier.function.name {
     /* my_function() */
 }
-advphp-base.identifier.parameter.prefix {
+advphp.identifier.parameter.prefix {
     /* my_function($parameter) {} */
 }
-advphp-base.identifier.parameter.name {
+advphp.identifier.parameter.name {
     /* my_function($parameter) {} */
 }
 ```
 
 ### Objects
 ```
-advphp-base.identifier.object.name {
+advphp.identifier.object.name {
     /* Object:: */
 }
 ```
 
 ### Strings 
 ```
-advphp-base.string,
-advphp-base.value.string,
-advphp-base.string.doubleQuote,
-advphp-base.string.singleQuote, {
+advphp.string,
+advphp.value.string,
+advphp.string.doubleQuote,
+advphp.string.singleQuote, {
     /* "string", 'string' */
 }
 
-advphp-base.string.backTic {
+advphp.string.backTic {
     /* `string` */
 }
 ```
