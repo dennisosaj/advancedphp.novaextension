@@ -24,6 +24,8 @@ advanced PHP currently supports the following features:
 
 ✅ SQL recognition within strings
 
+✅ CURL-, WP-Constants 
+
 ✅ separation between function parameters, arguments, variables and this
 
 ✅ separation between different elements like declarations, methods, variable prefixes etc.
@@ -37,120 +39,134 @@ advanced PHP currently supports the following features:
 ✅ offers completions and suggestions
 
 ### advanced PHP:
+
+With [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension):
+
 ![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
 
-With [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension). 
-
 ### standard PHP-HTML:
-![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
-With standard "Palette" theme.
+With standard "Palette" theme:
+
+![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
 ## Theming 🎨
 
-![varia Theme](https://github.com/dennisosaj/variatheme.novaextension/blob/main/Images/thumb.png?raw=true)
+### 👉 supported Themes
 
-(2020-11-20) The syntax works best with [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension). 💯
+[![Varia Theme](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/Themes/varia.png?raw=true)](https://github.com/dennisosaj/variatheme.novaextension)
+[![Nord for Nova](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/Themes/nord.png?raw=true)](https://github.com/GwynethLlewelyn/Nord.novaextension)
+
+- [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension)
+- [Nord for Nova](https://github.com/GwynethLlewelyn/Nord.novaextension)
+
+### 👉 Development
 
 The syntax provides an easy way to improve the highlighting for theme developers.
 
-
-### Statics
+#### Statics
 ```
 advphp.static.condition { 
-    /* if, else, elseif, foreach, ... */
+    if, else, elseif, foreach, ...
 }
 advphp.static.processor { 
-    /* echo, return, print, ... */
+    echo, return, print, ...
 }
 advphp.static.declaration {
-    /* new, public, private, ... */
+    new, public, private, ...
 }
 advphp.static.import {
-    /* include, require, ... */
+    include, require, ...
 }
 advphp.static.constant {
-    /* __DIR__, __METHOD__, ... */
+    __DIR__, __METHOD__, ...
 }
 advphp.static.wordOperator {
-    /* AND, OR, XOR, ... */
+    AND, OR, XOR, ...
 }
 ```
 
-### CURL Keywords
+#### Wordpress Keywords
+```
+advphp.wp.keywords {
+    ABSPATH, WP_ADMIN, ...
+}
+```
+
+#### CURL Keywords
 ```
 advphp.curl.keywords {
-    /* CURLOPT_HEADER, CURLOPT_PROXY, ... */
+    CURLOPT_HEADER, CURLOPT_PROXY, ...
 }
 ```
 
-### SQL Keywords
+#### SQL Keywords
 ```
 advphp.sql.keywords {
-    /* SELECT, FROM, WHERE, ... */
+    SELECT, FROM, WHERE, ...
 }
 ```
 
-### Syntax
+#### Syntax
 ```
 advphp.operator {
-    /* +, -, /, >, ... */
+    +, -, /, >, ...
 }
 advphp.bracket {
-    /* [], {}, (), "", ... */
+    [], {}, (), "", ...
 }
 advphp.delimiter {
-    /* , */
+    ,
 }
 ```
 
-### Variables
+#### Variables
 ```
 advphp.identifier.variable.prefix {
-    /* $ */
+    $
 }
 advphp.identifier.variable.name {
-    /* $variable */
+    $variable
 }
 advphp.identifier.variable.this {
-    /* $this */
+    $this
 }
 ```
 
-### Functions
+#### Functions
 ```
 advphp.identifier.function.keyword {
-    /* function */
+    function
 }
 advphp.identifier.function.name {
-    /* my_function() */
+    my_function()
 }
 advphp.identifier.parameter.prefix {
-    /* my_function($parameter) {} */
+    my_function($parameter) {}
 }
 advphp.identifier.parameter.name {
-    /* my_function($parameter) {} */
+    my_function($parameter) {}
 }
 ```
 
-### Objects
+#### Objects
 ```
 advphp.identifier.object.name {
-    /* Object:: */
+    Object::
 }
 ```
 
-### Strings 
+#### Strings 
 ```
 advphp.string,
 advphp.value.string,
 advphp.string.doubleQuote,
 advphp.string.singleQuote, {
-    /* "string", 'string' */
+    "string", 'string'
 }
 
 advphp.string.backTic {
-    /* `string` */
+    `string`
 }
 ```
 

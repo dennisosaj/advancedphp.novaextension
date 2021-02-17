@@ -58,6 +58,8 @@
     <scopes>
         <include syntax="self" collection="comments" />
         <include syntax="self" collection="statics" />
+        <include syntax="self" collection="curls" />
+        <include syntax="self" collection="wps" />
         <include syntax="self" collection="definitions" />
         <include syntax="self" collection="values" />
         <include syntax="self" collection="identifiers" />
@@ -90,8 +92,6 @@
                 </ends-with>
             </scope>
         </collection>
-        
-        
         
         <!--
             ███████╗████████╗ █████╗ ████████╗██╗ ██████╗███████╗
@@ -169,7 +169,7 @@
             </scope>
             <scope name="advphp.static.constant">
                 <strings>
-                    <!-- reserved variables -->
+                    <!-- reserved constants -->
                     <string>__DIR__</string>
                     <string>__METHOD__</string>
                     <string>__FILE__</string>
@@ -177,6 +177,7 @@
                     <string>__FUNCTION__</string>
                     <string>__CLASS__</string>
                     <string>__NAMESPACE__</string>
+                    <string>__COMPILER_HALT_OFFSET__</string>
                     <string>E_ALL</string>
                     <string>E_COMPILE_ERROR</string>
                     <string>E_COMPILE_WARNING</string>
@@ -192,7 +193,45 @@
                     <string>E_USER_ERROR</string>
                     <string>E_USER_NOTICE</string>
                     <string>E_USER_WARNING</string>
-                    <string>E_WARNING</string>  
+                    <string>E_WARNING</string>
+                    <string>PHP_VERSION</string>
+                    <string>PHP_MAJOR_VERSION</string>
+                    <string>PHP_MINOR_VERSION</string>
+                    <string>PHP_RELEASE_VERSION</string>
+                    <string>PHP_VERSION_ID</string>
+                    <string>PHP_EXTRA_VERSION</string>
+                    <string>PHP_ZTS</string>
+                    <string>PHP_DEBUG</string>
+                    <string>PHP_MAXPATHLEN</string>
+                    <string>PHP_OS</string>
+                    <string>PHP_OS_FAMILY</string>
+                    <string>PHP_SAPI</string>
+                    <string>PHP_EOL</string>
+                    <string>PHP_INT_MAX</string>
+                    <string>PHP_INT_MIN</string>
+                    <string>PHP_INT_SIZE</string>
+                    <string>PHP_FLOAT_DIG</string>
+                    <string>PHP_FLOAT_EPSILON</string>
+                    <string>PHP_FLOAT_MIN</string>
+                    <string>PHP_FLOAT_MAX</string>
+                    <string>DEFAULT_INCLUDE_PATH</string>
+                    <string>PEAR_INSTALL_DIR</string>
+                    <string>PEAR_EXTENSION_DIR</string>
+                    <string>PHP_EXTENSION_DIR</string>
+                    <string>PHP_PREFIX</string>
+                    <string>PHP_BINDIR</string>
+                    <string>PHP_BINARY</string>
+                    <string>PHP_MANDIR</string>
+                    <string>PHP_LIBDIR</string>
+                    <string>PHP_DATADIR</string>
+                    <string>PHP_SYSCONFDIR</string>
+                    <string>PHP_LOCALSTATEDIR</string>
+                    <string>PHP_CONFIG_FILE_PATH</string>
+                    <string>PHP_CONFIG_FILE_SCAN_DIR</string>
+                    <string>PHP_SHLIB_SUFFIX</string>
+                    <string>PHP_FD_SETSIZE</string>
+                    <string>PHP_WINDOWS_EVENT_CTRL_C</string>
+                    <string>PHP_WINDOWS_EVENT_CTRL_BREAK</string> 
                 </strings>
             </scope>
             <scope name="advphp.static.wordOperator">
@@ -210,295 +249,444 @@
             </scope>
         </collection>
         
+        <collection name="wps">
+            <scope name="advphp.wp.keywords">
+                <!-- reserved Wordpress keywords -->
+                <strings>
+                    <string>ABSPATH</string>
+                    <string>ADMIN_COOKIE_PATH</string>
+                    <string>ALLOW_SUBDIRECTORY_INSTALL</string>
+                    <string>ALLOW_UNFILTERED_UPLOADS</string>
+                    <string>APP_REQUEST</string>
+                    <string>AUTH_COOKIE</string>
+                    <string>AUTH_KEY</string>
+                    <string>AUTH_SALT</string>
+                    <string>AUTOSAVE_INTERVAL</string>
+                    <string>BACKGROUND_IMAGE</string>
+                    <string>BLOG_ID_CURRENT_SITE</string>
+                    <string>BLOGUPLOADDIR</string>
+                    <string>COMMENTS_TEMPLATE</string>
+                    <string>COMPRESS_CSS</string>
+                    <string>COMPRESS_SCRIPTS</string>
+                    <string>CONCATENATE_SCRIPTS</string>
+                    <string>COOKIE_DOMAIN</string>
+                    <string>COOKIEHASH</string>
+                    <string>COOKIEPATH</string>
+                    <string>CORE_UPGRADE_SKIP_NEW_BUNDLED</string>
+                    <string>CUSTOM_TAGS</string>
+                    <string>CUSTOM_USER_META_TABLE</string>
+                    <string>CUSTOM_USER_TABLE</string>
+                    <string>DB_CHARSET</string>
+                    <string>DB_COLLATE</string>
+                    <string>DB_HOST</string>
+                    <string>DB_NAME</string>
+                    <string>DB_PASSWORD</string>
+                    <string>DB_USER</string>
+                    <string>DIEONDBERROR</string>
+                    <string>DISABLE_WP_CRON</string>
+                    <string>DISALLOW_FILE_EDIT</string>
+                    <string>DISALLOW_FILE_MODS</string>
+                    <string>DISALLOW_UNFILTERED_HTML</string>
+                    <string>DOING_AJAX</string>
+                    <string>DOING_AUTOSAVE</string>
+                    <string>DOING_CRON</string>
+                    <string>DOMAIN_CURRENT_SITE</string>
+                    <string>EMPTY_TRASH_DAYS</string>
+                    <string>ENFORCE_GZIP</string>
+                    <string>ERRORLOGFILE</string>
+                    <string>FORCE_SSL_ADMIN</string>
+                    <string>FORCE_SSL_LOGIN</string>
+                    <string>FS_CHMOD_DIR</string>
+                    <string>FS_CHMOD_FILE</string>
+                    <string>FS_CONNECT_TIMEOUT</string>
+                    <string>FS_METHOD</string>
+                    <string>FS_TIMEOUT</string>
+                    <string>FTP_BASE</string>
+                    <string>FTP_CONTENT_DIR</string>
+                    <string>FTP_HOST</string>
+                    <string>FTP_LANG_DIR</string>
+                    <string>FTP_PASS</string>
+                    <string>FTP_PLUGIN_DIR</string>
+                    <string>FTP_PRIKEY</string>
+                    <string>FTP_PUBKEY</string>
+                    <string>FTP_SSH</string>
+                    <string>FTP_SSL</string>
+                    <string>FTP_USER</string>
+                    <string>HEADER_IMAGE</string>
+                    <string>HEADER_IMAGE_HEIGHT</string>
+                    <string>HEADER_IMAGE_WIDTH</string>
+                    <string>HEADER_TEXTCOLOR</string>
+                    <string>IFRAME_REQUEST</string>
+                    <string>IMAGE_EDIT_OVERWRITE</string>
+                    <string>IS_PROFILE_PAGE</string>
+                    <string>LOGGED_IN_COOKIE</string>
+                    <string>LOGGED_IN_KEY</string>
+                    <string>LOGGED_IN_SALT</string>
+                    <string>MEDIA_TRASH</string>
+                    <string>MULTISITE</string>
+                    <string>NO_HEADER_TEXT</string>
+                    <string>NOBLOGREDIRECT</string>
+                    <string>NONCE_KEY</string>
+                    <string>NONCE_SALT</string>
+                    <string>PASS_COOKIE</string>
+                    <string>PATH_CURRENT_SITE</string>
+                    <string>PLUGINS_COOKIE_PATH</string>
+                    <string>SAVEQUERIES</string>
+                    <string>SCRIPT_DEBUG</string>
+                    <string>SECURE_AUTH_COOKIE</string>
+                    <string>SECURE_AUTH_KEY</string>
+                    <string>SECURE_AUTH_SALT</string>
+                    <string>SHORTINIT</string>
+                    <string>SITE_ID_CURRENT_SITE</string>
+                    <string>SITECOOKIEPATH</string>
+                    <string>STYLESHEETPATH</string>
+                    <string>SUBDOMAIN_INSTALL</string>
+                    <string>SUNRISE</string>
+                    <string>TEMPLATEPATH</string>
+                    <string>TEST_COOKIE</string>
+                    <string>UPLOADBLOGSDIR</string>
+                    <string>UPLOADS</string>
+                    <string>USER_COOKIE</string>
+                    <string>WP_ACCESSIBLE_HOSTS</string>
+                    <string>WP_ADMIN</string>
+                    <string>WP_ALLOW_MULTISITE</string>
+                    <string>WP_ALLOW_REPAIR</string>
+                    <string>WP_BLOG_ADMIN</string>
+                    <string>WP_CACHE</string>
+                    <string>WP_CONTENT_DIR</string>
+                    <string>WP_CONTENT_URL</string>
+                    <string>WP_CRON_LOCK_TIMEOUT</string>
+                    <string>WP_DEBUG</string>
+                    <string>WP_DEBUG_DISPLAY</string>
+                    <string>WP_DEBUG_LOG</string>
+                    <string>WP_DEFAULT_THEME</string>
+                    <string>WP_HOME</string>
+                    <string>WP_HTTP_BLOCK_EXTERNAL</string>
+                    <string>WP_IMPORTING</string>
+                    <string>WP_INSTALLING</string>
+                    <string>WP_INSTALLING_NETWORK</string>
+                    <string>WP_LANG_DIR</string>
+                    <string>WP_LOAD_IMPORTERS</string>
+                    <string>WP_MAIL_INTERVAL</string>
+                    <string>WP_MAX_MEMORY_LIMIT</string>
+                    <string>WP_MEMORY_LIMIT</string>
+                    <string>WP_NETWORK_ADMIN</string>
+                    <string>WP_PLUGIN_DIR</string>
+                    <string>WP_PLUGIN_URL</string>
+                    <string>WP_POST_REVISIONS</string>
+                    <string>WP_PROXY_BYPASS_HOSTS</string>
+                    <string>WP_PROXY_HOST</string>
+                    <string>WP_PROXY_PASSWORD</string>
+                    <string>WP_PROXY_PORT</string>
+                    <string>WP_PROXY_USERNAME</string>
+                    <string>WP_REPAIRING</string>
+                    <string>WP_SETUP_CONFIG</string>
+                    <string>WP_SITEURL</string>
+                    <string>WP_TEMP_DIR</string>
+                    <string>WP_UNINSTALL_PLUGIN</string>
+                    <string>WP_USE_THEMES</string>
+                    <string>WP_USER_ADMIN</string>
+                    <string>WPINC</string>
+                    <string>WPLANG</string>
+                    <string>WPMU_ACCEL_REDIRECT</string>
+                    <string>WPMU_PLUGIN_DIR</string>
+                    <string>WPMU_PLUGIN_URL</string>
+                    <string>WPMU_SENDFILE</string>
+                    <string>XMLRPC_REQUEST</string>
+                </strings>
+            </scope>
+        </collection>
+        
         <collection name="curls">
             <scope name="advphp.curl.keywords">
                 <!-- reserved CURL keywords -->
                 <strings>
-                    <string>CURLOPT_VERBOSE</string>
-                    <string>CURLOPT_HEADER</string>
-                    <string>CURLOPT_NOPROGRESS</string>
-                    <string>CURLOPT_NOSIGNAL</string>
-                    <string>CURLOPT_WILDCARDMATCH</string>
-                    <string>CURLOPT_WRITEFUNCTION</string>
-                    <string>CURLOPT_WRITEDATA</string>
-                    <string>CURLOPT_READFUNCTION</string>
-                    <string>CURLOPT_READDATA</string>
-                    <string>CURLOPT_IOCTLFUNCTION</string>
-                    <string>CURLOPT_IOCTLDATA</string>
-                    <string>CURLOPT_SEEKFUNCTION</string>
-                    <string>CURLOPT_SEEKDATA</string>
-                    <string>CURLOPT_SOCKOPTFUNCTION</string>
-                    <string>CURLOPT_SOCKOPTDATA</string>
-                    <string>CURLOPT_OPENSOCKETFUNCTION</string>
-                    <string>CURLOPT_OPENSOCKETDATA</string>
-                    <string>CURLOPT_CLOSESOCKETFUNCTION</string>
+                    <string>CURLOPT_ABSTRACT_UNIX_SOCKET</string>
+                    <string>CURLOPT_ACCEPT_ENCODING</string>
+                    <string>CURLOPT_ACCEPTTIMEOUT_MS</string>
+                    <string>CURLOPT_ADDRESS_SCOPE</string>
+                    <string>CURLOPT_ALTSVC</string>
+                    <string>CURLOPT_ALTSVC_CTRL</string>
+                    <string>CURLOPT_APPEND</string>
+                    <string>CURLOPT_AUTOREFERER</string>
+                    <string>CURLOPT_BUFFERSIZE</string>
+                    <string>CURLOPT_CAINFO</string>
+                    <string>CURLOPT_CAPATH</string>
+                    <string>CURLOPT_CERTINFO</string>
+                    <string>CURLOPT_CHUNK_BGN_FUNCTION</string>
+                    <string>CURLOPT_CHUNK_DATA</string>
+                    <string>CURLOPT_CHUNK_END_FUNCTION</string>
                     <string>CURLOPT_CLOSESOCKETDATA</string>
-                    <string>CURLOPT_PROGRESSFUNCTION</string>
-                    <string>CURLOPT_PROGRESSDATA</string>
-                    <string>CURLOPT_XFERINFOFUNCTION</string>
-                    <string>CURLOPT_XFERINFODATA</string>
-                    <string>CURLOPT_HEADERFUNCTION</string>
-                    <string>CURLOPT_HEADERDATA</string>
-                    <string>CURLOPT_DEBUGFUNCTION</string>
-                    <string>CURLOPT_DEBUGDATA</string>
-                    <string>CURLOPT_SSL_CTX_FUNCTION</string>
-                    <string>CURLOPT_SSL_CTX_DATA</string>
-                    <string>CURLOPT_CONV_TO_NETWORK_FUNCTION</string>
+                    <string>CURLOPT_CLOSESOCKETFUNCTION</string>
+                    <string>CURLOPT_CONNECT_ONLY</string>
+                    <string>CURLOPT_CONNECT_TO</string>
+                    <string>CURLOPT_CONNECTTIMEOUT</string>
+                    <string>CURLOPT_CONNECTTIMEOUT_MS</string>
                     <string>CURLOPT_CONV_FROM_NETWORK_FUNCTION</string>
                     <string>CURLOPT_CONV_FROM_UTF8_FUNCTION</string>
-                    <string>CURLOPT_INTERLEAVEFUNCTION</string>
-                    <string>CURLOPT_INTERLEAVEDATA</string>
-                    <string>CURLOPT_CHUNK_BGN_FUNCTION</string>
-                    <string>CURLOPT_CHUNK_END_FUNCTION</string>
-                    <string>CURLOPT_CHUNK_DATA</string>
-                    <string>CURLOPT_FNMATCH_FUNCTION</string>
-                    <string>CURLOPT_FNMATCH_DATA</string>
-                    <string>CURLOPT_SUPPRESS_CONNECT_HEADERS</string>
-                    <string>CURLOPT_RESOLVER_START_FUNCTION</string>
-                    <string>CURLOPT_RESOLVER_START_DATA</string>
-                    <string>CURLOPT_ERRORBUFFER</string>
-                    <string>CURLOPT_STDERR</string>
-                    <string>CURLOPT_FAILONERROR</string>
-                    <string>CURLOPT_KEEP_SENDING_ON_ERROR</string>
-                    <string>CURLOPT_URL</string>
-                    <string>CURLOPT_PATH_AS_IS</string>
-                    <string>CURLOPT_PROTOCOLS</string>
-                    <string>CURLOPT_REDIR_PROTOCOLS</string>
-                    <string>CURLOPT_DEFAULT_PROTOCOL</string>
-                    <string>CURLOPT_PROXY</string>
-                    <string>CURLOPT_PRE_PROXY</string>
-                    <string>CURLOPT_PROXYPORT</string>
-                    <string>CURLOPT_PROXYTYPE</string>
-                    <string>CURLOPT_NOPROXY</string>
-                    <string>CURLOPT_HTTPPROXYTUNNEL</string>
-                    <string>CURLOPT_CONNECT_TO</string>
-                    <string>CURLOPT_SOCKS5_AUTH</string>
-                    <string>CURLOPT_SOCKS5_GSSAPI_SERVICE</string>
-                    <string>CURLOPT_SOCKS5_GSSAPI_NEC</string>
-                    <string>CURLOPT_PROXY_SERVICE_NAME</string>
-                    <string>CURLOPT_HAPROXYPROTOCOL</string>
-                    <string>CURLOPT_SERVICE_NAME</string>
-                    <string>CURLOPT_INTERFACE</string>
-                    <string>CURLOPT_LOCALPORT</string>
-                    <string>CURLOPT_LOCALPORTRANGE</string>
-                    <string>CURLOPT_DNS_CACHE_TIMEOUT</string>
-                    <string>CURLOPT_DNS_USE_GLOBAL_CACHE</string>
-                    <string>CURLOPT_DOH_URL</string>
-                    <string>CURLOPT_BUFFERSIZE</string>
-                    <string>CURLOPT_PORT</string>
-                    <string>CURLOPT_TCP_FASTOPEN</string>
-                    <string>CURLOPT_TCP_NODELAY</string>
-                    <string>CURLOPT_ADDRESS_SCOPE</string>
-                    <string>CURLOPT_TCP_KEEPALIVE</string>
-                    <string>CURLOPT_TCP_KEEPIDLE</string>
-                    <string>CURLOPT_TCP_KEEPINTVL</string>
-                    <string>CURLOPT_UNIX_SOCKET_PATH</string>
-                    <string>CURLOPT_ABSTRACT_UNIX_SOCKET</string>
-                    <string>CURLOPT_NETRC</string>
-                    <string>CURLOPT_NETRC_FILE</string>
-                    <string>CURLOPT_USERPWD</string>
-                    <string>CURLOPT_PROXYUSERPWD</string>
-                    <string>CURLOPT_USERNAME</string>
-                    <string>CURLOPT_PASSWORD</string>
-                    <string>CURLOPT_LOGIN_OPTIONS</string>
-                    <string>CURLOPT_PROXYUSERNAME</string>
-                    <string>CURLOPT_PROXYPASSWORD</string>
-                    <string>CURLOPT_HTTPAUTH</string>
-                    <string>CURLOPT_TLSAUTH_USERNAME</string>
-                    <string>CURLOPT_PROXY_TLSAUTH_USERNAME</string>
-                    <string>CURLOPT_TLSAUTH_PASSWORD</string>
-                    <string>CURLOPT_PROXY_TLSAUTH_PASSWORD</string>
-                    <string>CURLOPT_TLSAUTH_TYPE</string>
-                    <string>CURLOPT_PROXY_TLSAUTH_TYPE</string>
-                    <string>CURLOPT_PROXYAUTH</string>
-                    <string>CURLOPT_SASL_AUTHZID</string>
-                    <string>CURLOPT_SASL_IR</string>
-                    <string>CURLOPT_XOAUTH2_BEARER</string>
-                    <string>CURLOPT_DISALLOW_USERNAME_IN_URL</string>
-                    <string>CURLOPT_AUTOREFERER</string>
-                    <string>CURLOPT_ACCEPT_ENCODING</string>
-                    <string>CURLOPT_TRANSFER_ENCODING</string>
-                    <string>CURLOPT_FOLLOWLOCATION</string>
-                    <string>CURLOPT_UNRESTRICTED_AUTH</string>
-                    <string>CURLOPT_MAXREDIRS</string>
-                    <string>CURLOPT_POSTREDIR</string>
-                    <string>CURLOPT_PUT</string>
-                    <string>CURLOPT_POST</string>
-                    <string>CURLOPT_POSTFIELDS</string>
-                    <string>CURLOPT_POSTFIELDSIZE</string>
-                    <string>CURLOPT_POSTFIELDSIZE_LARGE</string>
-                    <string>CURLOPT_COPYPOSTFIELDS</string>
-                    <string>CURLOPT_HTTPPOST</string>
-                    <string>CURLOPT_REFERER</string>
-                    <string>CURLOPT_USERAGENT</string>
-                    <string>CURLOPT_HTTPHEADER</string>
-                    <string>CURLOPT_HEADEROPT</string>
-                    <string>CURLOPT_PROXYHEADER</string>
-                    <string>CURLOPT_HTTP200ALIASES</string>
+                    <string>CURLOPT_CONV_TO_NETWORK_FUNCTION</string>
                     <string>CURLOPT_COOKIE</string>
                     <string>CURLOPT_COOKIEFILE</string>
                     <string>CURLOPT_COOKIEJAR</string>
-                    <string>CURLOPT_COOKIESESSION</string>
                     <string>CURLOPT_COOKIELIST</string>
-                    <string>CURLOPT_ALTSVC</string>
-                    <string>CURLOPT_ALTSVC_CTRL</string>
-                    <string>CURLOPT_HSTS</string>
-                    <string>CURLOPT_HSTS_CTRL</string>
-                    <string>CURLOPT_HSTSREADFUNCTION</string>
-                    <string>CURLOPT_HSTSREADDATA</string>
-                    <string>CURLOPT_HSTSWRITEFUNCTION</string>
-                    <string>CURLOPT_HSTSWRITEDATA</string>
-                    <string>CURLOPT_HTTPGET</string>
-                    <string>CURLOPT_REQUEST_TARGET</string>
-                    <string>CURLOPT_HTTP_VERSION</string>
-                    <string>CURLOPT_HTTP09_ALLOWED</string>
-                    <string>CURLOPT_IGNORE_CONTENT_LENGTH</string>
-                    <string>CURLOPT_HTTP_CONTENT_DECODING</string>
-                    <string>CURLOPT_HTTP_TRANSFER_DECODING</string>
-                    <string>CURLOPT_EXPECT_100_TIMEOUT_MS</string>
-                    <string>CURLOPT_TRAILERFUNCTION</string>
-                    <string>CURLOPT_TRAILERDATA</string>
-                    <string>CURLOPT_PIPEWAIT</string>
-                    <string>CURLOPT_STREAM_DEPENDS</string>
-                    <string>CURLOPT_STREAM_DEPENDS_E</string>
-                    <string>CURLOPT_STREAM_WEIGHT</string>
-                    <string>CURLOPT_MAIL_FROM</string>
-                    <string>CURLOPT_MAIL_RCPT</string>
-                    <string>CURLOPT_MAIL_AUTH</string>
-                    <string>CURLOPT_MAIL_RCPT_ALLLOWFAILS</string>
-                    <string>CURLOPT_TFTP_BLKSIZE</string>
-                    <string>CURLOPT_TFTP_NO_OPTIONS</string>
-                    <string>CURLOPT_FTPPORT</string>
-                    <string>CURLOPT_QUOTE</string>
-                    <string>CURLOPT_POSTQUOTE</string>
-                    <string>CURLOPT_PREQUOTE</string>
-                    <string>CURLOPT_APPEND</string>
-                    <string>CURLOPT_FTP_USE_EPRT</string>
-                    <string>CURLOPT_FTP_USE_EPSV</string>
-                    <string>CURLOPT_FTP_USE_PRET</string>
-                    <string>CURLOPT_FTP_CREATE_MISSING_DIRS</string>
-                    <string>CURLOPT_FTP_RESPONSE_TIMEOUT</string>
-                    <string>CURLOPT_FTP_ALTERNATIVE_TO_USER</string>
-                    <string>CURLOPT_FTP_SKIP_PASV_IP</string>
-                    <string>CURLOPT_FTPSSLAUTH</string>
-                    <string>CURLOPT_FTP_SSL_CCC</string>
-                    <string>CURLOPT_FTP_ACCOUNT</string>
-                    <string>CURLOPT_FTP_FILEMETHOD</string>
-                    <string>CURLOPT_RTSP_REQUEST</string>
-                    <string>CURLOPT_RTSP_SESSION_ID</string>
-                    <string>CURLOPT_RTSP_STREAM_URI</string>
-                    <string>CURLOPT_RTSP_TRANSPORT</string>
-                    <string>CURLOPT_RTSP_CLIENT_CSEQ</string>
-                    <string>CURLOPT_RTSP_SERVER_CSEQ</string>
-                    <string>CURLOPT_TRANSFERTEXT</string>
-                    <string>CURLOPT_PROXY_TRANSFER_MODE</string>
+                    <string>CURLOPT_COOKIESESSION</string>
+                    <string>CURLOPT_COPYPOSTFIELDS</string>
                     <string>CURLOPT_CRLF</string>
-                    <string>CURLOPT_RANGE</string>
-                    <string>CURLOPT_RESUME_FROM</string>
-                    <string>CURLOPT_RESUME_FROM_LARGE</string>
+                    <string>CURLOPT_CRLFILE</string>
                     <string>CURLOPT_CURLU</string>
                     <string>CURLOPT_CUSTOMREQUEST</string>
-                    <string>CURLOPT_FILETIME</string>
+                    <string>CURLOPT_DEBUGDATA</string>
+                    <string>CURLOPT_DEBUGFUNCTION</string>
+                    <string>CURLOPT_DEFAULT_PROTOCOL</string>
                     <string>CURLOPT_DIRLISTONLY</string>
-                    <string>CURLOPT_NOBODY</string>
-                    <string>CURLOPT_INFILESIZE</string>
-                    <string>CURLOPT_INFILESIZE_LARGE</string>
-                    <string>CURLOPT_UPLOAD</string>
-                    <string>CURLOPT_UPLOAD_BUFFERSIZE</string>
-                    <string>CURLOPT_MIMEPOST</string>
-                    <string>CURLOPT_MAXFILESIZE</string>
-                    <string>CURLOPT_MAXFILESIZE_LARGE</string>
-                    <string>CURLOPT_TIMECONDITION</string>
-                    <string>CURLOPT_TIMEVALUE</string>
-                    <string>CURLOPT_TIMEVALUE_LARGE</string>
-                    <string>CURLOPT_TIMEOUT</string>
-                    <string>CURLOPT_TIMEOUT_MS</string>
-                    <string>CURLOPT_LOW_SPEED_LIMIT</string>
-                    <string>CURLOPT_LOW_SPEED_TIME</string>
-                    <string>CURLOPT_MAX_SEND_SPEED_LARGE</string>
-                    <string>CURLOPT_MAX_RECV_SPEED_LARGE</string>
-                    <string>CURLOPT_MAXCONNECTS</string>
-                    <string>CURLOPT_FRESH_CONNECT</string>
-                    <string>CURLOPT_FORBID_REUSE</string>
-                    <string>CURLOPT_MAXAGE_CONN</string>
-                    <string>CURLOPT_CONNECTTIMEOUT</string>
-                    <string>CURLOPT_CONNECTTIMEOUT_MS</string>
-                    <string>CURLOPT_IPRESOLVE</string>
-                    <string>CURLOPT_CONNECT_ONLY</string>
-                    <string>CURLOPT_USE_SSL</string>
-                    <string>CURLOPT_RESOLVE</string>
+                    <string>CURLOPT_DISALLOW_USERNAME_IN_URL</string>
+                    <string>CURLOPT_DNS_CACHE_TIMEOUT</string>
                     <string>CURLOPT_DNS_INTERFACE</string>
                     <string>CURLOPT_DNS_LOCAL_IP4</string>
                     <string>CURLOPT_DNS_LOCAL_IP6</string>
                     <string>CURLOPT_DNS_SERVERS</string>
                     <string>CURLOPT_DNS_SHUFFLE_ADDRESSES</string>
-                    <string>CURLOPT_ACCEPTTIMEOUT_MS</string>
+                    <string>CURLOPT_DNS_USE_GLOBAL_CACHE</string>
+                    <string>CURLOPT_DOH_URL</string>
+                    <string>CURLOPT_EGDSOCKET</string>
+                    <string>CURLOPT_ERRORBUFFER</string>
+                    <string>CURLOPT_EXPECT_100_TIMEOUT_MS</string>
+                    <string>CURLOPT_FAILONERROR</string>
+                    <string>CURLOPT_FILETIME</string>
+                    <string>CURLOPT_FNMATCH_DATA</string>
+                    <string>CURLOPT_FNMATCH_FUNCTION</string>
+                    <string>CURLOPT_FOLLOWLOCATION</string>
+                    <string>CURLOPT_FORBID_REUSE</string>
+                    <string>CURLOPT_FRESH_CONNECT</string>
+                    <string>CURLOPT_FTP_ACCOUNT</string>
+                    <string>CURLOPT_FTP_ALTERNATIVE_TO_USER</string>
+                    <string>CURLOPT_FTP_CREATE_MISSING_DIRS</string>
+                    <string>CURLOPT_FTP_FILEMETHOD</string>
+                    <string>CURLOPT_FTP_RESPONSE_TIMEOUT</string>
+                    <string>CURLOPT_FTP_SKIP_PASV_IP</string>
+                    <string>CURLOPT_FTP_SSL_CCC</string>
+                    <string>CURLOPT_FTP_USE_EPRT</string>
+                    <string>CURLOPT_FTP_USE_EPSV</string>
+                    <string>CURLOPT_FTP_USE_PRET</string>
+                    <string>CURLOPT_FTPPORT</string>
+                    <string>CURLOPT_FTPSSLAUTH</string>
+                    <string>CURLOPT_GSSAPI_DELEGATION</string>
                     <string>CURLOPT_HAPPY_EYEBALLS_TIMEOUT_MS</string>
-                    <string>CURLOPT_UPKEEP_INTERVAL_MS</string>
-                    <string>CURLOPT_SSLCERT</string>
-                    <string>CURLOPT_SSLCERT_BLOB</string>
-                    <string>CURLOPT_PROXY_SSLCERT</string>
-                    <string>CURLOPT_PROXY_SSLCERT_BLOB</string>
-                    <string>CURLOPT_SSLCERTTYPE</string>
-                    <string>CURLOPT_PROXY_SSLCERTTYPE</string>
-                    <string>CURLOPT_SSLKEY</string>
-                    <string>CURLOPT_SSLKEY_BLOB</string>
-                    <string>CURLOPT_PROXY_SSLKEY</string>
-                    <string>CURLOPT_PROXY_SSLKEY_BLOB</string>
-                    <string>CURLOPT_SSLKEYTYPE</string>
-                    <string>CURLOPT_PROXY_SSLKEYTYPE</string>
-                    <string>CURLOPT_KEYPASSWD</string>
-                    <string>CURLOPT_PROXY_KEYPASSWD</string>
-                    <string>CURLOPT_SSL_EC_CURVES</string>
-                    <string>CURLOPT_SSL_ENABLE_ALPN</string>
-                    <string>CURLOPT_SSL_ENABLE_NPN</string>
-                    <string>CURLOPT_SSLENGINE</string>
-                    <string>CURLOPT_SSLENGINE_DEFAULT</string>
-                    <string>CURLOPT_SSL_FALSESTART</string>
-                    <string>CURLOPT_SSLVERSION</string>
-                    <string>CURLOPT_PROXY_SSLVERSION</string>
-                    <string>CURLOPT_SSL_VERIFYHOST</string>
-                    <string>CURLOPT_PROXY_SSL_VERIFYHOST</string>
-                    <string>CURLOPT_SSL_VERIFYPEER</string>
-                    <string>CURLOPT_PROXY_SSL_VERIFYPEER</string>
-                    <string>CURLOPT_SSL_VERIFYSTATUS</string>
-                    <string>CURLOPT_CAINFO</string>
-                    <string>CURLOPT_PROXY_CAINFO</string>
+                    <string>CURLOPT_HAPROXYPROTOCOL</string>
+                    <string>CURLOPT_HEADER</string>
+                    <string>CURLOPT_HEADERDATA</string>
+                    <string>CURLOPT_HEADERFUNCTION</string>
+                    <string>CURLOPT_HEADEROPT</string>
+                    <string>CURLOPT_HSTS</string>
+                    <string>CURLOPT_HSTS_CTRL</string>
+                    <string>CURLOPT_HSTSREADDATA</string>
+                    <string>CURLOPT_HSTSREADFUNCTION</string>
+                    <string>CURLOPT_HSTSWRITEDATA</string>
+                    <string>CURLOPT_HSTSWRITEFUNCTION</string>
+                    <string>CURLOPT_HTTP09_ALLOWED</string>
+                    <string>CURLOPT_HTTP200ALIASES</string>
+                    <string>CURLOPT_HTTP_CONTENT_DECODING</string>
+                    <string>CURLOPT_HTTP_TRANSFER_DECODING</string>
+                    <string>CURLOPT_HTTP_VERSION</string>
+                    <string>CURLOPT_HTTPAUTH</string>
+                    <string>CURLOPT_HTTPGET</string>
+                    <string>CURLOPT_HTTPHEADER</string>
+                    <string>CURLOPT_HTTPPOST</string>
+                    <string>CURLOPT_HTTPPROXYTUNNEL</string>
+                    <string>CURLOPT_IGNORE_CONTENT_LENGTH</string>
+                    <string>CURLOPT_INFILESIZE</string>
+                    <string>CURLOPT_INFILESIZE_LARGE</string>
+                    <string>CURLOPT_INTERFACE</string>
+                    <string>CURLOPT_INTERLEAVEDATA</string>
+                    <string>CURLOPT_INTERLEAVEFUNCTION</string>
+                    <string>CURLOPT_IOCTLDATA</string>
+                    <string>CURLOPT_IOCTLFUNCTION</string>
+                    <string>CURLOPT_IPRESOLVE</string>
                     <string>CURLOPT_ISSUERCERT</string>
                     <string>CURLOPT_ISSUERCERT_BLOB</string>
+                    <string>CURLOPT_KEEP_SENDING_ON_ERROR</string>
+                    <string>CURLOPT_KEYPASSWD</string>
+                    <string>CURLOPT_KRBLEVEL</string>
+                    <string>CURLOPT_LOCALPORT</string>
+                    <string>CURLOPT_LOCALPORTRANGE</string>
+                    <string>CURLOPT_LOGIN_OPTIONS</string>
+                    <string>CURLOPT_LOW_SPEED_LIMIT</string>
+                    <string>CURLOPT_LOW_SPEED_TIME</string>
+                    <string>CURLOPT_MAIL_AUTH</string>
+                    <string>CURLOPT_MAIL_FROM</string>
+                    <string>CURLOPT_MAIL_RCPT</string>
+                    <string>CURLOPT_MAIL_RCPT_ALLLOWFAILS</string>
+                    <string>CURLOPT_MAX_RECV_SPEED_LARGE</string>
+                    <string>CURLOPT_MAX_SEND_SPEED_LARGE</string>
+                    <string>CURLOPT_MAXAGE_CONN</string>
+                    <string>CURLOPT_MAXCONNECTS</string>
+                    <string>CURLOPT_MAXFILESIZE</string>
+                    <string>CURLOPT_MAXFILESIZE_LARGE</string>
+                    <string>CURLOPT_MAXREDIRS</string>
+                    <string>CURLOPT_MIMEPOST</string>
+                    <string>CURLOPT_NETRC</string>
+                    <string>CURLOPT_NETRC_FILE</string>
+                    <string>CURLOPT_NEW_DIRECTORY_PERMS</string>
+                    <string>CURLOPT_NEW_FILE_PERMS</string>
+                    <string>CURLOPT_NOBODY</string>
+                    <string>CURLOPT_NOPROGRESS</string>
+                    <string>CURLOPT_NOPROXY</string>
+                    <string>CURLOPT_NOSIGNAL</string>
+                    <string>CURLOPT_OPENSOCKETDATA</string>
+                    <string>CURLOPT_OPENSOCKETFUNCTION</string>
+                    <string>CURLOPT_PASSWORD</string>
+                    <string>CURLOPT_PATH_AS_IS</string>
+                    <string>CURLOPT_PINNEDPUBLICKEY</string>
+                    <string>CURLOPT_PIPEWAIT</string>
+                    <string>CURLOPT_PORT</string>
+                    <string>CURLOPT_POST</string>
+                    <string>CURLOPT_POSTFIELDS</string>
+                    <string>CURLOPT_POSTFIELDSIZE</string>
+                    <string>CURLOPT_POSTFIELDSIZE_LARGE</string>
+                    <string>CURLOPT_POSTQUOTE</string>
+                    <string>CURLOPT_POSTREDIR</string>
+                    <string>CURLOPT_PRE_PROXY</string>
+                    <string>CURLOPT_PREQUOTE</string>
+                    <string>CURLOPT_PRIVATE</string>
+                    <string>CURLOPT_PROGRESSDATA</string>
+                    <string>CURLOPT_PROGRESSFUNCTION</string>
+                    <string>CURLOPT_PROTOCOLS</string>
+                    <string>CURLOPT_PROXY</string>
+                    <string>CURLOPT_PROXY_CAINFO</string>
+                    <string>CURLOPT_PROXY_CAPATH</string>
+                    <string>CURLOPT_PROXY_CRLFILE</string>
                     <string>CURLOPT_PROXY_ISSUERCERT</string>
                     <string>CURLOPT_PROXY_ISSUERCERT_BLOB</string>
-                    <string>CURLOPT_CAPATH</string>
-                    <string>CURLOPT_PROXY_CAPATH</string>
-                    <string>CURLOPT_CRLFILE</string>
-                    <string>CURLOPT_PROXY_CRLFILE</string>
-                    <string>CURLOPT_CERTINFO</string>
-                    <string>CURLOPT_PINNEDPUBLICKEY</string>
+                    <string>CURLOPT_PROXY_KEYPASSWD</string>
                     <string>CURLOPT_PROXY_PINNEDPUBLICKEY</string>
-                    <string>CURLOPT_RANDOM_FILE</string>
-                    <string>CURLOPT_EGDSOCKET</string>
-                    <string>CURLOPT_SSL_CIPHER_LIST</string>
+                    <string>CURLOPT_PROXY_SERVICE_NAME</string>
                     <string>CURLOPT_PROXY_SSL_CIPHER_LIST</string>
-                    <string>CURLOPT_TLS13_CIPHERS</string>
-                    <string>CURLOPT_PROXY_TLS13_CIPHERS</string>
-                    <string>CURLOPT_SSL_SESSIONID_CACHE</string>
-                    <string>CURLOPT_SSL_OPTIONS</string>
                     <string>CURLOPT_PROXY_SSL_OPTIONS</string>
-                    <string>CURLOPT_KRBLEVEL</string>
-                    <string>CURLOPT_GSSAPI_DELEGATION</string>
+                    <string>CURLOPT_PROXY_SSL_VERIFYHOST</string>
+                    <string>CURLOPT_PROXY_SSL_VERIFYPEER</string>
+                    <string>CURLOPT_PROXY_SSLCERT</string>
+                    <string>CURLOPT_PROXY_SSLCERT_BLOB</string>
+                    <string>CURLOPT_PROXY_SSLCERTTYPE</string>
+                    <string>CURLOPT_PROXY_SSLKEY</string>
+                    <string>CURLOPT_PROXY_SSLKEY_BLOB</string>
+                    <string>CURLOPT_PROXY_SSLKEYTYPE</string>
+                    <string>CURLOPT_PROXY_SSLVERSION</string>
+                    <string>CURLOPT_PROXY_TLS13_CIPHERS</string>
+                    <string>CURLOPT_PROXY_TLSAUTH_PASSWORD</string>
+                    <string>CURLOPT_PROXY_TLSAUTH_TYPE</string>
+                    <string>CURLOPT_PROXY_TLSAUTH_USERNAME</string>
+                    <string>CURLOPT_PROXY_TRANSFER_MODE</string>
+                    <string>CURLOPT_PROXYAUTH</string>
+                    <string>CURLOPT_PROXYHEADER</string>
+                    <string>CURLOPT_PROXYPASSWORD</string>
+                    <string>CURLOPT_PROXYPORT</string>
+                    <string>CURLOPT_PROXYTYPE</string>
+                    <string>CURLOPT_PROXYUSERNAME</string>
+                    <string>CURLOPT_PROXYUSERPWD</string>
+                    <string>CURLOPT_PUT</string>
+                    <string>CURLOPT_QUOTE</string>
+                    <string>CURLOPT_RANDOM_FILE</string>
+                    <string>CURLOPT_RANGE</string>
+                    <string>CURLOPT_READDATA</string>
+                    <string>CURLOPT_READFUNCTION</string>
+                    <string>CURLOPT_REDIR_PROTOCOLS</string>
+                    <string>CURLOPT_REFERER</string>
+                    <string>CURLOPT_REQUEST_TARGET</string>
+                    <string>CURLOPT_RESOLVE</string>
+                    <string>CURLOPT_RESOLVER_START_DATA</string>
+                    <string>CURLOPT_RESOLVER_START_FUNCTION</string>
+                    <string>CURLOPT_RESUME_FROM</string>
+                    <string>CURLOPT_RESUME_FROM_LARGE</string>
+                    <string>CURLOPT_RETURNTRANSFER</string>
+                    <string>CURLOPT_RTSP_CLIENT_CSEQ</string>
+                    <string>CURLOPT_RTSP_REQUEST</string>
+                    <string>CURLOPT_RTSP_SERVER_CSEQ</string>
+                    <string>CURLOPT_RTSP_SESSION_ID</string>
+                    <string>CURLOPT_RTSP_STREAM_URI</string>
+                    <string>CURLOPT_RTSP_TRANSPORT</string>
+                    <string>CURLOPT_SASL_AUTHZID</string>
+                    <string>CURLOPT_SASL_IR</string>
+                    <string>CURLOPT_SEEKDATA</string>
+                    <string>CURLOPT_SEEKFUNCTION</string>
+                    <string>CURLOPT_SERVICE_NAME</string>
+                    <string>CURLOPT_SHARE</string>
+                    <string>CURLOPT_SOCKOPTDATA</string>
+                    <string>CURLOPT_SOCKOPTFUNCTION</string>
+                    <string>CURLOPT_SOCKS5_AUTH</string>
+                    <string>CURLOPT_SOCKS5_GSSAPI_NEC</string>
+                    <string>CURLOPT_SOCKS5_GSSAPI_SERVICE</string>
                     <string>CURLOPT_SSH_AUTH_TYPES</string>
                     <string>CURLOPT_SSH_COMPRESSION</string>
                     <string>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</string>
-                    <string>CURLOPT_SSH_PUBLIC_KEYFILE</string>
-                    <string>CURLOPT_SSH_PRIVATE_KEYFILE</string>
-                    <string>CURLOPT_SSH_KNOWNHOSTS</string>
-                    <string>CURLOPT_SSH_KEYFUNCTION</string>
                     <string>CURLOPT_SSH_KEYDATA</string>
-                    <string>CURLOPT_PRIVATE</string>
-                    <string>CURLOPT_SHARE</string>
-                    <string>CURLOPT_NEW_FILE_PERMS</string>
-                    <string>CURLOPT_NEW_DIRECTORY_PERMS</string>
+                    <string>CURLOPT_SSH_KEYFUNCTION</string>
+                    <string>CURLOPT_SSH_KNOWNHOSTS</string>
+                    <string>CURLOPT_SSH_PRIVATE_KEYFILE</string>
+                    <string>CURLOPT_SSH_PUBLIC_KEYFILE</string>
+                    <string>CURLOPT_SSL_CIPHER_LIST</string>
+                    <string>CURLOPT_SSL_CTX_DATA</string>
+                    <string>CURLOPT_SSL_CTX_FUNCTION</string>
+                    <string>CURLOPT_SSL_EC_CURVES</string>
+                    <string>CURLOPT_SSL_ENABLE_ALPN</string>
+                    <string>CURLOPT_SSL_ENABLE_NPN</string>
+                    <string>CURLOPT_SSL_FALSESTART</string>
+                    <string>CURLOPT_SSL_OPTIONS</string>
+                    <string>CURLOPT_SSL_SESSIONID_CACHE</string>
+                    <string>CURLOPT_SSL_VERIFYHOST</string>
+                    <string>CURLOPT_SSL_VERIFYPEER</string>
+                    <string>CURLOPT_SSL_VERIFYSTATUS</string>
+                    <string>CURLOPT_SSLCERT</string>
+                    <string>CURLOPT_SSLCERT_BLOB</string>
+                    <string>CURLOPT_SSLCERTTYPE</string>
+                    <string>CURLOPT_SSLENGINE</string>
+                    <string>CURLOPT_SSLENGINE_DEFAULT</string>
+                    <string>CURLOPT_SSLKEY</string>
+                    <string>CURLOPT_SSLKEY_BLOB</string>
+                    <string>CURLOPT_SSLKEYTYPE</string>
+                    <string>CURLOPT_SSLVERSION</string>
+                    <string>CURLOPT_STDERR</string>
+                    <string>CURLOPT_STREAM_DEPENDS</string>
+                    <string>CURLOPT_STREAM_DEPENDS_E</string>
+                    <string>CURLOPT_STREAM_WEIGHT</string>
+                    <string>CURLOPT_SUPPRESS_CONNECT_HEADERS</string>
+                    <string>CURLOPT_TCP_FASTOPEN</string>
+                    <string>CURLOPT_TCP_KEEPALIVE</string>
+                    <string>CURLOPT_TCP_KEEPIDLE</string>
+                    <string>CURLOPT_TCP_KEEPINTVL</string>
+                    <string>CURLOPT_TCP_NODELAY</string>
                     <string>CURLOPT_TELNETOPTIONS</string>
+                    <string>CURLOPT_TFTP_BLKSIZE</string>
+                    <string>CURLOPT_TFTP_NO_OPTIONS</string>
+                    <string>CURLOPT_TIMECONDITION</string>
+                    <string>CURLOPT_TIMEOUT</string>
+                    <string>CURLOPT_TIMEOUT_MS</string>
+                    <string>CURLOPT_TIMEVALUE</string>
+                    <string>CURLOPT_TIMEVALUE_LARGE</string>
+                    <string>CURLOPT_TLS13_CIPHERS</string>
+                    <string>CURLOPT_TLSAUTH_PASSWORD</string>
+                    <string>CURLOPT_TLSAUTH_TYPE</string>
+                    <string>CURLOPT_TLSAUTH_USERNAME</string>
+                    <string>CURLOPT_TRAILERDATA</string>
+                    <string>CURLOPT_TRAILERFUNCTION</string>
+                    <string>CURLOPT_TRANSFER_ENCODING</string>
+                    <string>CURLOPT_TRANSFERTEXT</string>
+                    <string>CURLOPT_UNIX_SOCKET_PATH</string>
+                    <string>CURLOPT_UNRESTRICTED_AUTH</string>
+                    <string>CURLOPT_UPKEEP_INTERVAL_MS</string>
+                    <string>CURLOPT_UPLOAD</string>
+                    <string>CURLOPT_UPLOAD_BUFFERSIZE</string>
+                    <string>CURLOPT_URL</string>
+                    <string>CURLOPT_USE_SSL</string>
+                    <string>CURLOPT_USERAGENT</string>
+                    <string>CURLOPT_USERNAME</string>
+                    <string>CURLOPT_USERPWD</string>
+                    <string>CURLOPT_VERBOSE</string>
+                    <string>CURLOPT_WILDCARDMATCH</string>
+                    <string>CURLOPT_WRITEDATA</string>
+                    <string>CURLOPT_WRITEFUNCTION</string>
+                    <string>CURLOPT_XFERINFODATA</string>
+                    <string>CURLOPT_XFERINFOFUNCTION</string>
+                    <string>CURLOPT_XOAUTH2_BEARER</string>
                 </strings>
             </scope>
         </collection>
@@ -795,6 +983,8 @@
                         <subscopes>
                             <include syntax="self" collection="comments" />
                             <include syntax="self" collection="statics" />
+                            <include syntax="self" collection="curls" />
+                            <include syntax="self" collection="wps" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
@@ -864,6 +1054,8 @@
                         <subscopes>
                             <include syntax="self" collection="comments" />
                             <include syntax="self" collection="statics" />
+                            <include syntax="self" collection="curls" />
+                            <include syntax="self" collection="wps" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
@@ -924,6 +1116,8 @@
                         <subscopes>
                             <include syntax="self" collection="comments" />
                             <include syntax="self" collection="statics" />
+                            <include syntax="self" collection="curls" />
+                            <include syntax="self" collection="wps" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
@@ -1050,6 +1244,8 @@
                         </ends-with>
                         <subscopes>
                             <include syntax="self" collection="statics" />
+                            <include syntax="self" collection="curls" />
+                            <include syntax="self" collection="wps" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
@@ -1070,6 +1266,8 @@
                                 </ends-with>
                                 <subscopes>
                                     <include syntax="self" collection="statics" />
+                                    <include syntax="self" collection="curls" />
+                                    <include syntax="self" collection="wps" />
                                     <include syntax="self" collection="definitions" />
                                     <include syntax="self" collection="values" />
                                     <include syntax="self" collection="identifiers" />
@@ -1093,6 +1291,9 @@
                 <subscopes>
                     <include syntax="self" collection="sqls" />
                     <include syntax="self" collection="backTics" />
+                    <scope name="advphp.string.doubleQuote.escape">
+                        <expression>\\(?:\\|&apos;|&quot;|n|r|t|b|f)</expression>
+                    </scope>
                     <scope name="advphp.varSubstitution">
                         <expression>(\$)((\bthis\b)|([a-zA-Z_][a-zA-Z0-9_]*))</expression>
                         <capture number="1" name="advphp.identifier.variable.prefix" />
@@ -1110,6 +1311,8 @@
                         </ends-with>
                         <subscopes>
                             <include syntax="self" collection="statics" />
+                            <include syntax="self" collection="curls" />
+                            <include syntax="self" collection="wps" />
                             <include syntax="self" collection="definitions" />
                             <include syntax="self" collection="values" />
                             <include syntax="self" collection="identifiers" />
@@ -1130,6 +1333,8 @@
                                 </ends-with>
                                 <subscopes>
                                     <include syntax="self" collection="statics" />
+                                    <include syntax="self" collection="curls" />
+                                    <include syntax="self" collection="wps" />
                                     <include syntax="self" collection="definitions" />
                                     <include syntax="self" collection="values" />
                                     <include syntax="self" collection="identifiers" />
@@ -1249,6 +1454,8 @@
                     </cut-off>
                     <include syntax="self" collection="comments" />
                     <include syntax="self" collection="statics" />
+                    <include syntax="self" collection="curls" />
+                    <include syntax="self" collection="wps" />
                     <include syntax="self" collection="definitions" />
                     <include syntax="self" collection="values" />
                     <include syntax="self" collection="identifiers" />
@@ -1274,6 +1481,8 @@
                     </cut-off>
                     <include syntax="self" collection="comments" />
                     <include syntax="self" collection="statics" />
+                    <include syntax="self" collection="curls" />
+                    <include syntax="self" collection="wps" />
                     <include syntax="self" collection="definitions" />
                     <include syntax="self" collection="values" />
                     <include syntax="self" collection="identifiers" />
@@ -1299,6 +1508,8 @@
                     </cut-off>
                     <include syntax="self" collection="comments" />
                     <include syntax="self" collection="statics" />
+                    <include syntax="self" collection="curls" />
+                    <include syntax="self" collection="wps" />
                     <include syntax="self" collection="definitions" />
                     <include syntax="self" collection="values" />
                     <include syntax="self" collection="identifiers" />

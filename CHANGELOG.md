@@ -1,3 +1,13 @@
+## Version 2.1.0
+
+- add more PHP constants
+- add Wordpress keywords
+
+### Issue Fixes:
+
+- CURL keywords recognition
+- escaping within double quotes string
+
 ## Version 2.0.0
 
 - Nova 4 support 
@@ -5,15 +15,14 @@
 
 ## Version 1.1.2
 
-- adding of static keywords for CURL
+- add CURL keywords
 
 ## Version 1.1.1
 
-- adding of (more) static keywords to PHP and SQL
+- add SQL keywords
+- add more PHP constants
 
 ## Version 1.1.0
-
-### New Features:
 
 - SQL recognition within strings
 
@@ -23,19 +32,17 @@
 
 ## Version 1.0.0 
 
-### Issue Fixes:
-
-- commenting shortcut PHP within HTML 
-- selecting variable with prefix at double-click
-- escaping characters within double-quotes
-    
-### New Features:
-
 - PHP suggestions
 - better completions
 - hierarchy subtree
 - extended keywords list
 - function folding
+
+### Issue Fixes:
+
+- commenting shortcut PHP within HTML 
+- selecting variable with prefix at double-click
+- escaping characters within double-quotes
 
 ## Version 0.9.0 (Beta)
 
