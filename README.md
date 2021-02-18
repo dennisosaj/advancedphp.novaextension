@@ -56,13 +56,17 @@ With standard "Palette" theme:
 
 [![Varia Theme](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/Themes/varia.png?raw=true)](https://github.com/dennisosaj/variatheme.novaextension)
 [![Nord for Nova](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/Themes/nord.png?raw=true)](https://github.com/GwynethLlewelyn/Nord.novaextension)
+[![Monokai Pro](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/Themes/monokai-pro.png?raw=true)](https://github.com/keisto/Monokai-Pro.novaextension)
+[![Tomorrow Night Eighties](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/Themes/tomorrow-night-eighties.png?raw=true)](https://github.com/blakewatson/nova-tomorrow-night-eighties)
 
 - [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension)
 - [Nord for Nova](https://github.com/GwynethLlewelyn/Nord.novaextension)
+- [Monokai Pro](https://github.com/keisto/Monokai-Pro.novaextension)
+- [Tomorrow Night Eighties](https://github.com/blakewatson/nova-tomorrow-night-eighties)
 
 ### 👉 Development
 
-The syntax provides an easy way to improve the highlighting for theme developers.
+The syntax provides an easy way to style the syntax for theme developers. As a theme developer please let me know if your theme supports "advanced PHP". ✌️
 
 #### Statics
 ```

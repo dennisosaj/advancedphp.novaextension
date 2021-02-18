@@ -1,3 +1,7 @@
+## Version 2.1.1
+
+- more supported themes
+
 ## Version 2.1.0
 
 - add more PHP constants
