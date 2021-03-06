@@ -130,6 +130,7 @@
             <scope name="advphp.static.processor">
                 <strings>
                     <!-- reserved processors -->
+                    <string>use</string>
                     <string>echo</string>
                     <string>return</string>
                     <string>clone</string>
@@ -143,6 +144,7 @@
                 <strings>
                     <!-- reserved declarations -->
                     <string>new</string>
+                    <string>static</string>
                     <string>public</string>
                     <string>private</string>
                     <string>protected</string>
@@ -1533,10 +1535,13 @@
                 <expression>[\(\[\{\)\]\}]</expression>
             </scope>
             <scope name="advphp.operator">
-                <expression>(\+|\-|\*|\/|\%|\*\*|\=|\=\=|\=\=\=|\!\=|\&lt;\&gt;|\!\=\=|\&amp;|\^|\||\&lt;\&lt;|\&gt;\&gt;|\&lt;|\&lt;\=|\&gt;|\&gt;\=|\&lt;\=\&gt;|\+\+|\-\-|\&amp;\&amp;|\|\||\;|\!|\.|\.\=|\?|\:|\?\?)</expression>
+                <expression>(\+|\-|\*|\/|\%|\*\*|\=|\=\=|\=\=\=|\!\=|\&lt;\&gt;|\!\=\=|\&amp;|\^|\||\&lt;\&lt;|\&gt;\&gt;|\&lt;|\&lt;\=|\&gt;|\&gt;\=|\&lt;\=\&gt;|\+\+|\-\-|\&amp;\&amp;|\|\||\!|\.|\.\=|\?|\:|\?\?)</expression>
             </scope>
             <scope name="advphp.delimiter">
                 <expression>,</expression>
+            </scope>
+            <scope name="advphp.semicolon">
+                <expression>;</expression>
             </scope>
         </collection>
     </collections>

@@ -1,3 +1,11 @@
+## Version 2.1.3
+
+- add custom semicolon highlighting
+
+## Version 2.1.2
+
+- add more static keywords
+
 ## Version 2.1.1
 
 - more supported themes

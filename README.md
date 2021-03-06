@@ -122,6 +122,9 @@ advphp.bracket {
 advphp.delimiter {
     ,
 }
+advphp.semicolon {
+    ;
+}
 ```
 
 #### Variables
