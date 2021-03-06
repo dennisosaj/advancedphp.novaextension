@@ -163,6 +163,13 @@ advphp.identifier.object.name {
 }
 ```
 
+#### Namespace
+```
+advphp.definition.namespace {
+    Name\Space
+}
+```
+
 #### Strings 
 ```
 advphp.string,

@@ -130,7 +130,6 @@
             <scope name="advphp.static.processor">
                 <strings>
                     <!-- reserved processors -->
-                    <string>use</string>
                     <string>echo</string>
                     <string>return</string>
                     <string>clone</string>
@@ -952,6 +951,26 @@
         -->
         <!-- Definitions -->
         <collection name="definitions">
+            <scope name="advphp.definition.useNamespace">  
+                <starts-with>
+                    <expression>(?:(?:(use)\s+|\G(\\))\K\w+)</expression>
+                    <capture number="0" name="advphp.definition.namespace" />
+                    <capture number="1" name="advphp.static.processor" />
+                    <capture number="2" name="advphp.operator" />
+                </starts-with>
+                <ends-with>
+                    <expression>\;</expression>
+                    <capture number="0" name="advphp.semicolon" />
+                </ends-with>
+                <subscopes>
+                    <scope name="advphp.definition.asNamespace">
+                        <expression>(?:(?:(as)\s+|\G(\\))\K\w+)</expression>
+                        <capture number="0" name="advphp.definition.namespace" />
+                        <capture number="1" name="advphp.static.processor" />
+                        <capture number="2" name="advphp.operator" />
+                    </scope>
+                </subscopes>
+            </scope>
             <scope name="advphp.definition.class">
                 <symbol type="class">
                     <context behavior="subtree" foldable="false" />
@@ -1535,7 +1554,7 @@
                 <expression>[\(\[\{\)\]\}]</expression>
             </scope>
             <scope name="advphp.operator">
-                <expression>(\+|\-|\*|\/|\%|\*\*|\=|\=\=|\=\=\=|\!\=|\&lt;\&gt;|\!\=\=|\&amp;|\^|\||\&lt;\&lt;|\&gt;\&gt;|\&lt;|\&lt;\=|\&gt;|\&gt;\=|\&lt;\=\&gt;|\+\+|\-\-|\&amp;\&amp;|\|\||\!|\.|\.\=|\?|\:|\?\?)</expression>
+                <expression>(\+|\-|\*|\/|\\|\%|\*\*|\=|\=\=|\=\=\=|\!\=|\&lt;\&gt;|\!\=\=|\&amp;|\^|\||\&lt;\&lt;|\&gt;\&gt;|\&lt;|\&lt;\=|\&gt;|\&gt;\=|\&lt;\=\&gt;|\+\+|\-\-|\&amp;\&amp;|\|\||\!|\.|\.\=|\?|\:|\?\?)</expression>
             </scope>
             <scope name="advphp.delimiter">
                 <expression>,</expression>

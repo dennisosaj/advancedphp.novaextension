@@ -1,3 +1,7 @@
+## Version 2.2.0
+
+- add namespace highlighting 
+
 ## Version 2.1.3
 
 - add custom semicolon highlighting
