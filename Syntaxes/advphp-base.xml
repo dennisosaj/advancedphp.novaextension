@@ -952,24 +952,16 @@
         <!-- Definitions -->
         <collection name="definitions">
             <scope name="advphp.definition.useNamespace">  
-                <starts-with>
-                    <expression>(?:(?:(use)\s+|\G(\\))\K\w+)</expression>
-                    <capture number="0" name="advphp.definition.namespace" />
-                    <capture number="1" name="advphp.static.processor" />
-                    <capture number="2" name="advphp.operator" />
-                </starts-with>
-                <ends-with>
-                    <expression>\;</expression>
-                    <capture number="0" name="advphp.semicolon" />
-                </ends-with>
-                <subscopes>
-                    <scope name="advphp.definition.asNamespace">
-                        <expression>(?:(?:(as)\s+|\G(\\))\K\w+)</expression>
-                        <capture number="0" name="advphp.definition.namespace" />
-                        <capture number="1" name="advphp.static.processor" />
-                        <capture number="2" name="advphp.operator" />
-                    </scope>
-                </subscopes>
+                <expression>(?:(?:(use)\s+|\G(\\))\K\w+)</expression>
+                <capture number="0" name="advphp.definition.namespace" />
+                <capture number="1" name="advphp.static.processor" />
+                <capture number="2" name="advphp.operator" />
+            </scope>
+            <scope name="advphp.definition.asNamespace">
+                <expression>(?:(?:(as)\s+|\G(\\))\K\w+)</expression>
+                <capture number="0" name="advphp.definition.namespace" />
+                <capture number="1" name="advphp.static.processor" />
+                <capture number="2" name="advphp.operator" />
             </scope>
             <scope name="advphp.definition.class">
                 <symbol type="class">

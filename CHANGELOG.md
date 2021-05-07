@@ -1,3 +1,8 @@
+## Version 2.2.1
+
+- fix parsing issue after \Exception call
+- more supported themes
+
 ## Version 2.2.0
 
 - add namespace highlighting 

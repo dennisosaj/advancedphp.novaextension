@@ -63,6 +63,7 @@ With standard "Palette" theme:
 - [Nord for Nova](https://github.com/GwynethLlewelyn/Nord.novaextension)
 - [Monokai Pro](https://github.com/keisto/Monokai-Pro.novaextension)
 - [Tomorrow Night Eighties](https://github.com/blakewatson/nova-tomorrow-night-eighties)
+- [Stuntrocket](https://github.com/stuntrocket/novatheme)
 
 ### 👉 Development
 

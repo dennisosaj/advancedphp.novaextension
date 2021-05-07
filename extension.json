@@ -4,7 +4,7 @@
     "vendor": "Dennis Osaj",
     "organization": "Dennis Osaj",
     "description": "Advanced syntax highlighting for PHP.",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "categories": ["languages"],
     "repository": "https://github.com/dennisosaj/advancedphp.novaextension",
     "homepage": "https://www.dennisosaj.de/?utm_campaign=open_source&utm_source=nova&utm_medium=advancedphp",
