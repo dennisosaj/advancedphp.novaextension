@@ -724,6 +724,7 @@
                     <string>CASE</string>
                     <string>CAST</string>
                     <string>CATALOG</string>
+                    <string>CHANGE</string>
                     <string>CHAR</string>
                     <string>CHARACTER</string>
                     <string>CHARACTER_LENGTH</string>
@@ -846,6 +847,7 @@
                     <string>NO</string>
                     <string>NONE</string>
                     <string>NOT</string>
+                    <string>NULL</string>
                     <string>NULLIF</string>
                     <string>NUMERIC</string>
                     <string>OCTET_LENGTH</string>
@@ -919,6 +921,7 @@
                     <string>UNIQUE</string>
                     <string>UNKNOWN</string>
                     <string>UNLOCK</string>
+                    <string>UNSIGNED</string>
                     <string>UPDATE</string>
                     <string>UPPER</string>
                     <string>USAGE</string>

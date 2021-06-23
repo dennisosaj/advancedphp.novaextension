@@ -8,9 +8,25 @@ advanced PHP provides syntax highlighting for special PHP writing. It is also fu
 
 ## Why, though? 🤔
 
-Nova is a pretty editor with rich features, but it seems in lacking for language support. Because I'm a long time Sublime Text 3 user I wanted to get some fresh air and started looking into Nova. Unfortunately all my projects looked horrible with the standard PHP-HTML syntax, so I started building this extension. 
+Nova is a pretty editor with rich features, ~~but it seems in lacking for language support~~ *. Because I'm a long time Sublime Text 3 user I wanted to get some fresh air and started looking into Nova. Unfortunately all my projects looked horrible with the standard PHP-HTML syntax, so I started building this extension. 
 
 Nova is still fresh and can't compete in terms of extensions with other editors which are on the market for years now. But this for sure will change.
+
+(*) **Update:** Nova released a lot of major updates since I developed this extension. I published it first when Nova 3 came out. Since Nova 7 they implemented most of the features I've developed in this extension, but my extension still fits my needs better.
+
+To see how far they came I tried to get the same look with my [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension) for **Nova's PHP** and my **advanced PHP** highlighting. They're still some major differences. I focused more of the importance if strings and what kind of information they can hold. Also I tried to do a more logical separation of static keywords like: imports, processors, declarations, types and constants. I think when those features will be implement by Nova's standard PHP Syntax, my extension will be obsolete, but until then I will use it and try to improve it 😅
+
+### advanced PHP:
+
+With [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension):
+
+![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
+
+### standard PHP-HTML:
+
+With [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension):
+
+![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
 ## Language Support 🧩
 
@@ -37,18 +53,6 @@ advanced PHP currently supports the following features:
 ✅ supports Nova's function folding
 
 ✅ offers completions and suggestions
-
-### advanced PHP:
-
-With [Varia Theme](https://github.com/dennisosaj/variatheme.novaextension):
-
-![advanced PHP](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/advphp.png?raw=true) 
-
-### standard PHP-HTML:
-
-With standard "Palette" theme:
-
-![standard PHP-HTML](https://github.com/dennisosaj/advancedphp.novaextension/blob/main/Images/php-html.png?raw=true) 
 
 ## Theming 🎨
 

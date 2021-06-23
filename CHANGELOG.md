@@ -1,3 +1,7 @@
+## Version 2.2.2
+
+- add a statement to the README for Nova 7 and its PHP improvements
+
 ## Version 2.2.1
 
 - fix parsing issue after \Exception call
